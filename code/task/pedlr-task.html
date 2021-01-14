@@ -6,6 +6,7 @@
   <script src="jspsych-6.2.0/jspsych.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-instructions.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-html-keyboard-response.js"></script>
+  <script src="jspsych-6.2.0/plugins/jspsych-html-slider-response.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-image-keyboard-response.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-fullscreen.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-canvas-slider-response.js"></script>
@@ -17,9 +18,28 @@
 
 <script>
 
+//preload stimuli files
+// Get folder contents of stimuli puctures
+var stimuli = ['stimuli/a1.png',
+               'stimuli/arrow_left.png',
+               'stimuli/intro_pic1.png',
+               'stimuli/s2.png',
+               'stimuli/s5.png',
+               'stimuli/a2.png',
+               'stimuli/arrow_right.png',
+               'stimuli/intro_pic2.png',
+               'stimuli/s3.png',
+               'stimuli/s6.png',
+               'stimuli/a3.png',
+               'stimuli/fixation.png',
+               'stimuli/s1.png',
+               'stimuli/s4.png',
+               'stimuli/sno.png'
+             ]
+
 var timeline = []
 
-var trial_bandit = {
+var choice = {
   timeline: [
     {
       type: 'html-keyboard-response',
@@ -49,13 +69,67 @@ var trial_bandit = {
   ]
 }
 
-timeline.push(trial_bandit)
+var forced_choice = {
+  timeline: [
+    {
+      type: 'html-keyboard-response',
+      stimulus: function(){
+        var html = "<img src='stimuli/fixation.png'>";
+        return html;
+      },
+      trial_duration: 1000,
+      choices: jsPsych.NO_KEYS
+    },
+    {
+      type: 'html-keyboard-response',
+      stimulus: function(){
+        var html = "<img src='"+jsPsych.timelineVariable('stimulus_left', true)+"' style='margin:0px 50px'>";
+        html += "<img src='stimuli/arrow_"+jsPsych.timelineVariable('forced', true)+".png'>";
+        html += "<img src='"+jsPsych.timelineVariable('stimulus_left', true)+" 'style='margin:0px 50px'>";
+        return html;
+      },
+      trial_duration: 1000,
+      choices: jsPsych.NO_KEYS
+    }
+  ],
+  timeline_variables: [
+    {stimulus_left: 'stimuli/a1.png', stimulus_right: 'stimuli/a1.png', forced: 'right'},
+    {stimulus_left: 'stimuli/a2.png', stimulus_right: 'stimuli/a2.png', forced: 'left'},
+    {stimulus_left: 'stimuli/a3.png', stimulus_right: 'stimuli/a4.png', forced: 'right'},
+  ]
+}
+
+var rating = {
+  timeline: [
+    {
+      type: 'html-slider-response',
+      stimulus: function(){
+        var html = "<img src='"+jsPsych.timelineVariable('stimulus', true)+"' style='margin:0px 50px'>";
+        return html;
+      },
+      labels: ['0', '25', '50', '75', '100'],
+      step: 5,
+      prompt: "<p>What reward will you get?</p>"
+    }
+  ],
+  timeline_variables: [
+    {stimulus: 'stimuli/a1.png'},
+    {stimulus: 'stimuli/a2.png'},
+    {stimulus: 'stimuli/a3.png'},
+  ]
+
+};
+
+timeline.push(choice)
+timeline.push(forced_choice)
+timeline.push(rating)
 
 
 jsPsych.init({
   //timeline: timeline
   timeline: timeline,
-  override_safe_mode: false
+  override_safe_mode: false,
+  preload_images: stimuli
 });
 
 </script>
