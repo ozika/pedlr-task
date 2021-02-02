@@ -100,35 +100,42 @@ jsPsych.plugins['html-slider-response'] = (function() {
     }
   }
 
+  // function to read current slider value
+  function updateTextInput(val) {
+    document.getElementById('textInput').value=val; 
+  }
+
   plugin.trial = function(display_element, trial) {
 
     // half of the thumb width value from jspsych.css, used to adjust the label positions
     var half_thumb_width = 7.5; 
 
-    var html = '<div id="jspsych-html-slider-response-wrapper" style="margin: 100px 0px;">';
+    var html = '<div id="jspsych-html-slider-response-wrapper" style="margin: 100px 0px; background-color: transparent;">';
     html += '<div id="jspsych-html-slider-response-stimulus">' + trial.stimulus + '</div>';
-    html += '<div class="jspsych-html-slider-response-container" style="position:relative; margin: 0 auto 3em auto; ';
+    html += '<div class="jspsych-html-slider-response-container" style="position:relative; margin: 0 auto 1.5em auto; ';
     if(trial.slider_width !== null){
       html += 'width:'+trial.slider_width+'px;';
     } else {
       html += 'width:auto;';
     }
     html += '">';
-    html += '<input type="range" class="jspsych-slider" value="'+trial.slider_start+'" min="'+trial.min+'" max="'+trial.max+'" step="'+trial.step+'" id="jspsych-html-slider-response-response"></input>';
-    html += '<div>'
     for(var j=0; j < trial.labels.length; j++){
       var label_width_perc = 100/(trial.labels.length-1);
       var percent_of_range = j * (100/(trial.labels.length - 1));
       var percent_dist_from_center = ((percent_of_range-50)/50)*100;
       var offset = (percent_dist_from_center * half_thumb_width)/100;
-      html += '<div style="border: 1px solid transparent; display: inline-block; position: absolute; '+
+      html += '<div style="background-color: transparent; border: 1px solid transparent; display: inline-block; position: absolute; '+
       'left:calc('+percent_of_range+'% - ('+label_width_perc+'% / 2) - '+offset+'px); text-align: center; width: '+label_width_perc+'%;">';  
       html += '<span style="text-align: center; font-size: 80%;">'+trial.labels[j]+'</span>';
-      html += '</div>'
+      html += '</div>';
     }
     html += '</div>';
-    html += '</div>';
-    html += '</div>';
+    html += '<div style="background-color: transparent">'
+    // Html of slider, oninput gives current value
+    html += '<input type="range" class="jspsych-slider" value="'+trial.slider_start+'" min="'+trial.min+'" max="'+trial.max+'" step="'+trial.step+'" id="jspsych-html-slider-response-response" oninput="this.nextElementSibling.value = this.value";></input>';
+    // Display current value
+    html += '<output>'+trial.slider_start+'</output>';
+    html += '</div>'
 
     if (trial.prompt !== null){
       html += trial.prompt;

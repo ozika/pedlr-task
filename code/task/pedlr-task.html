@@ -21,41 +21,81 @@
 //preload stimuli files
 // Get folder contents of stimuli puctures
 var stimuli = ['stimuli/a1.png',
-               'stimuli/arrow_left.png',
-               'stimuli/intro_pic1.png',
-               'stimuli/s2.png',
-               'stimuli/s5.png',
+               'stimuli/a1.png',
+               'stimuli/a1_forced.png',
                'stimuli/a2.png',
-               'stimuli/arrow_right.png',
-               'stimuli/intro_pic2.png',
-               'stimuli/s3.png',
-               'stimuli/s6.png',
+               'stimuli/a2_forced.png',
                'stimuli/a3.png',
-               'stimuli/fixation.png',
+               'stimuli/a3_forced.png',
                'stimuli/s1.png',
+               'stimuli/s1_forced.png',
+               'stimuli/s2.png',
+               'stimuli/s2_forced.png',
+               'stimuli/s3.png',
+               'stimuli/s3_forced.png',
                'stimuli/s4.png',
-               'stimuli/sno.png'
+               'stimuli/s4_forced.png',
+               'stimuli/s5.png',
+               'stimuli/s5_forced.png',
+               'stimuli/s6.png',
+               'stimuli/s6_forced.png',
+               'stimuli/fixation.png'
              ]
+
+// Set scaling of images and margins to adjust size of experiment (in percentage)
+var img_scale = 30
 
 var timeline = []
 
+// Choice trials
 var choice = {
   timeline: [
     {
+      // Fixation cross ITI
       type: 'html-keyboard-response',
       stimulus: function(){
-        var html = "<img src='stimuli/fixation.png'>";
+        var html = "<img src='stimuli/fixation.png' style='margin:0px "+50/100 * img_scale+"px; width: "+400/100 * img_scale+"px;'>";
         return html;
       },
       trial_duration: 1000,
       choices: jsPsych.NO_KEYS
     },
     {
+      // Choice trial presenting two stimuli with choice
       type: 'html-keyboard-response',
       stimulus: function(){
-        var html = "<img src='"+jsPsych.timelineVariable('stimulus_left', true)+"' style='margin:0px 50px'>";
-        html += "<img src='stimuli/fixation.png'>";
-        html += "<img src='"+jsPsych.timelineVariable('stimulus_left', true)+" 'style='margin:0px 50px'>";
+        var html = "<img src='"+jsPsych.timelineVariable('stimulus_left', true)+"' style='margin:0px "+50/100 * img_scale+"px; width: "+400/100 * img_scale+"px;'>";
+        html += "<img src='stimuli/fixation.png' style='margin:0px "+50/100 * img_scale+"px; width: "+400/100 * img_scale+"px;'>";
+        html += "<img src='"+jsPsych.timelineVariable('stimulus_right', true)+" 'style='margin:0px "+50/100 * img_scale+"px; width: "+400/100 * img_scale+"px;'>";
+        return html;
+      },
+      trial_duration: 3000,
+      response_ends_trial: true,
+      choices: ['f', 'j'],
+      // Record presented stimuli
+      data: {
+        stimulus_left: 'A',
+        stimulus_right: 'B'
+      },
+      // Record pressed button and associated reward
+      on_finish: function(data){
+        if(data.key_press == 70){
+          data.choice = 'left'
+          data.outcome = jsPsych.timelineVariable('outcome_left', true)
+        } else if(data.key_press == 74){
+          data.choice = 'right'
+          data.outcome = jsPsych.timelineVariable('outcome_right', true)
+        } else {
+          data.choice = 'false'
+          data.outcome = 'n/a'
+        }
+      }
+    },
+    {
+      // Display outcome
+      type: 'html-keyboard-response',
+      stimulus: function(){
+        var html = "<p>"+jsPsych.data.get().last(1).values()[0].outcome+"</p>";
         return html;
       },
       trial_duration: 1000,
@@ -63,51 +103,86 @@ var choice = {
     }
   ],
   timeline_variables: [
-    {stimulus_left: 'stimuli/a1.png', stimulus_right: 'stimuli/a1.png'},
-    {stimulus_left: 'stimuli/a2.png', stimulus_right: 'stimuli/a2.png'},
-    {stimulus_left: 'stimuli/a3.png', stimulus_right: 'stimuli/a4.png'},
+    {stimulus_left: 'stimuli/a2.png', stimulus_right: 'stimuli/a3.png', outcome_left: 94, outcome_right: 26},
+    {stimulus_left: 'stimuli/a3.png', stimulus_right: 'stimuli/a1.png', outcome_left: 33, outcome_right: 10},
+    {stimulus_left: 'stimuli/a3.png', stimulus_right: 'stimuli/a1.png', outcome_left: 12, outcome_right: 82},
   ]
 }
 
+
+// Forced choice trials
 var forced_choice = {
   timeline: [
     {
+      // Fixation cross between different trials
       type: 'html-keyboard-response',
       stimulus: function(){
-        var html = "<img src='stimuli/fixation.png'>";
+        var html = "<img src='stimuli/fixation.png' style='margin:0px "+50/100 * img_scale+"px; width: "+400/100 * img_scale+"px;'>";
         return html;
       },
       trial_duration: 1000,
       choices: jsPsych.NO_KEYS
     },
     {
+      // Trial presenting two stimuli
       type: 'html-keyboard-response',
       stimulus: function(){
-        var html = "<img src='"+jsPsych.timelineVariable('stimulus_left', true)+"' style='margin:0px 50px'>";
-        html += "<img src='stimuli/arrow_"+jsPsych.timelineVariable('forced', true)+".png'>";
-        html += "<img src='"+jsPsych.timelineVariable('stimulus_left', true)+" 'style='margin:0px 50px'>";
+        var html = "<img src='"+jsPsych.timelineVariable('stimulus_left', true)+"' style='margin:0px "+50/100 * img_scale+"px; width: "+400/100 * img_scale+"px;'>";
+        html += "<img src='stimuli/fixation.png' style='margin:0px "+50/100 * img_scale+"px; width: "+400/100 * img_scale+"px;'>";
+        html += "<img src='"+jsPsych.timelineVariable('stimulus_right', true)+" ' style='margin:0px "+50/100 * img_scale+"px; width: "+400/100 * img_scale+"px;'>";
+        return html;
+      },
+      trial_duration: 3000,
+      response_ends_trial: true,
+      choices: ['f', 'j']
+    },
+    {
+      type: 'html-keyboard-response',
+      stimulus: function(){
+        var html = "<p>"+jsPsych.timelineVariable('outcome_left', true)+"</p>";
         return html;
       },
       trial_duration: 1000,
-      choices: jsPsych.NO_KEYS
+      response_ends_trial: true,
+      choices: ['f', 'j'],
+      // Record presented stimuli
+      data: {
+        stimulus_left: 'A',
+        stimulus_right: 'B'
+      },
+      // Record pressed button and associated reward
+      on_finish: function(data){
+        // Check pressed button
+        if(data.key_press == 70){
+          data.choice = 'left'
+        } else if(data.key_press == 74){
+          data.choice = 'right'
+        } else {
+          data.choice = 'false'
+        }
+        // Check if pressed button was forced
+      }
     }
   ],
+  // Variables for this trial type: right stimulus, left stimulus, right outcome, and left outcome
   timeline_variables: [
-    {stimulus_left: 'stimuli/a1.png', stimulus_right: 'stimuli/a1.png', forced: 'right'},
-    {stimulus_left: 'stimuli/a2.png', stimulus_right: 'stimuli/a2.png', forced: 'left'},
-    {stimulus_left: 'stimuli/a3.png', stimulus_right: 'stimuli/a4.png', forced: 'right'},
+    {stimulus_left: 'stimuli/a1_forced.png', stimulus_right: 'stimuli/a3.png', outcome_left: 55, outcome_right: 21, forced: 'left'},
+    {stimulus_left: 'stimuli/a2.png', stimulus_right: 'stimuli/a1_forced.png', outcome_left: 20, outcome_right: 49, forced: 'right'},
+    {stimulus_left: 'stimuli/a3_forced.png', stimulus_right: 'stimuli/a2.png', outcome_left: 10, outcome_right: 90, forced: 'left'},
   ]
 }
 
+// Rating trials
 var rating = {
   timeline: [
     {
       type: 'html-slider-response',
       stimulus: function(){
-        var html = "<img src='"+jsPsych.timelineVariable('stimulus', true)+"' style='margin:0px 50px'>";
+        var html = "<img src='"+jsPsych.timelineVariable('stimulus', true)+"' style='margin:0px "+50/100 * img_scale+"px; width: "+1.5 * 400/100 * img_scale+"px;'>";
         return html;
       },
-      labels: ['0', '10', '20', '30', '40', '50', '60', '70', '80', '90', '100'],
+      labels: ['0', '20', '40', '60', '80', '100'],
+      //labels: ['0','100'],
       step: 1,
       prompt: "<p>What reward will you get?</p>"
     }
@@ -126,7 +201,6 @@ timeline.push(rating)
 
 
 jsPsych.init({
-  //timeline: timeline
   timeline: timeline,
   override_safe_mode: false,
   preload_images: stimuli
