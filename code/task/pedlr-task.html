@@ -10,6 +10,7 @@
   <script src="jspsych-6.2.0/plugins/jspsych-image-keyboard-response.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-fullscreen.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-canvas-slider-response.js"></script>
+  <script src="jspsych-6.2.0/plugins/jspsych-call-function.js"></script>
   <link href="jspsych-6.2.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
 </head>
 
@@ -44,22 +45,156 @@ var stimuli = ['stimuli/a1.png',
 
 // Set scaling of images and margins to adjust size of experiment (in percentage)
 var img_scale = 30
+// Set number of trials after which the first break can occur
+var min_trials_for_break = 3
 
 var timeline = []
 
-// Choice trials
-var choice = {
+
+var take_a_break = {
+  timeline: [
+    {
+      type: 'html-keyboard-response',
+      stimulus: function(){
+        var html = "<img src='stimuli/break.png'; style='width: " + 300/100 * img_scale+"px'>"
+        html += "<p>Please take a short break</p>"
+        html += "<p>Press either 'f' or 'j' when you are ready to continue</p>"
+        return html;
+      },
+      choices: ['f', 'j'],
+      trial_duration: null,
+      response_ends_trial: true,
+      on_finish: function(data){
+        // Add constant variables
+        data.type = 'break'
+        data.stimulus_left = 'n/a'
+        data.stimulus_right = 'n/a'
+        data.outcome_left = 'n/a'
+        data.outcome_right = 'n/a'
+        data.forced = 'n/a'
+        data.stimulus_estimation = 'n/a'
+        data.choice = 'n/a'
+        data.outcome = 'n/a'
+        data.estimation = 'n/a'
+      }
+    }
+  ]
+}
+
+
+// Fixation cross "trials"
+var fixation = {
   timeline: [
     {
       // Fixation cross ITI
       type: 'html-keyboard-response',
       stimulus: function(){
-        var html = "<img src='stimuli/fixation.png' style='margin:0px "+50/100 * img_scale+"px; width: "+400/100 * img_scale+"px;'>";
+        if(jsPsych.timelineVariable('type', true) == 'estimation'){
+          var html = null;
+        } else{
+          var html = "<img src='stimuli/fixation.png' style='margin:0px "+50/100 * img_scale+"px; width: "+400/100 * img_scale+"px;'>";
+        }
         return html;
       },
-      trial_duration: 1000,
-      choices: jsPsych.NO_KEYS
-    },
+      trial_duration: function(){
+        if(jsPsych.timelineVariable('type', true) == 'estimation'){
+          return 0;
+        } else {
+          return 1000;
+        }
+      },
+      choices: jsPsych.NO_KEYS,
+      on_finish: function(data){
+        // Add constant variables
+        data.type = 'fixation'
+        data.stimulus_left = 'n/a'
+        data.stimulus_right = 'n/a'
+        data.outcome_left = 'n/a'
+        data.outcome_right = 'n/a'
+        data.forced = 'n/a'
+        data.stimulus_estimation = 'n/a'
+        data.choice = 'n/a'
+        data.outcome = 'n/a'
+        data.estimation = 'n/a'
+      }
+    }
+  ]
+}
+
+// Feedback "trials"
+var feedback = {
+  timeline: [
+    {
+      type: 'html-keyboard-response',
+      stimulus: function(){
+        // Feedback for free choice trials [too slow, outcome]
+        if(jsPsych.data.get().last(1).values()[0].type == 'free'){
+          if(jsPsych.data.get().last(1).values()[0].choice == 'n/a'){
+            var html = "<p>Please respond faster</p>";
+          } else {
+            var html = "<p>"+jsPsych.data.get().last(1).values()[0].outcome+"</p>";
+          }
+        // Feedback for forced choice trials [too slow, wrong choice, outcome]
+        } else if(jsPsych.data.get().last(1).values()[0].type == 'forced'){
+          if(jsPsych.data.get().last(1).values()[0].choice == 'n/a'){
+            var html = "<p>Please respond faster</p>";
+          } else if(jsPsych.data.get().last(1).values()[0].choice != jsPsych.data.get().last(1).values()[0].forced){
+            var html = "<p>Please always select the framed stimulus</p>";
+          } else {
+            var html = "<p>"+jsPsych.data.get().last(1).values()[0].outcome+"</p>";
+          }
+        // Feedback for estimation trials [too slow]
+        } else if(jsPsych.data.get().last(1).values()[0].type == 'estimation'){
+          if(jsPsych.data.get().last(1).values()[0].estimation == 'n/a'){
+            var html = "<p>Please respond faster</p>";
+          } else {
+            var html = 'n/a'
+          }
+        }
+        return html;
+      },
+      trial_duration: function(){
+        // Show slightly longer feedback when answer is wrong or timed out
+        if(jsPsych.data.get().last(1).values()[0].choice == 'n/a'){
+          return 2000;
+        } else if(jsPsych.data.get().last(1).values()[0].type == 'forced' && jsPsych.data.get().last(1).values()[0].choice != jsPsych.data.get().last(1).values()[0].forced){
+          return 2000;
+        // Don't show feedback on correct estimation trials (duration = 0)
+        } else if(jsPsych.data.get().last(1).values()[0].type == 'estimation' && jsPsych.data.get().last(1).values()[0].response != null){
+          return 0;
+        // COnstant feedback time for all corect trials
+        } else {
+          return 1000;
+        }
+      },
+      choices: jsPsych.NO_KEYS,
+      on_finish: function(data){
+        // Add constant variables
+        data.stimulus_left = 'n/a'
+        data.stimulus_right = 'n/a'
+        data.outcome_left = 'n/a'
+        data.outcome_right = 'n/a'
+        data.forced = 'n/a'
+        data.stimulus_estimation = 'n/a'
+        data.choice = 'n/a'
+        data.outcome = 'n/a'
+        data.estimation = 'n/a'
+        if(jsPsych.timelineVariable('type', true) == 'free'){
+          data.type = 'feedback_free'
+        } else if(jsPsych.timelineVariable('type', true) == 'forced'){
+          data.type = 'feedback_forced'
+        } else if(jsPsych.timelineVariable('type', true) == 'estimation'){
+          data.type = 'feedback_estimation'
+        }
+
+      }
+    }
+  ]
+}
+
+// Free choice trials
+var free = {
+  timeline: [
     {
       // Choice trial presenting two stimuli with choice
       type: 'html-keyboard-response',
@@ -72,13 +207,18 @@ var choice = {
       trial_duration: 3000,
       response_ends_trial: true,
       choices: ['f', 'j'],
-      // Record presented stimuli
-      data: {
-        stimulus_left: 'A',
-        stimulus_right: 'B'
-      },
       // Record pressed button and associated reward
       on_finish: function(data){
+        // Add constant variables
+        data.type = jsPsych.timelineVariable('type', true)
+        data.stimulus_left = jsPsych.timelineVariable('stimulus_left', true)
+        data.stimulus_right = jsPsych.timelineVariable('stimulus_right', true)
+        data.outcome_left = jsPsych.timelineVariable('outcome_left', true)
+        data.outcome_right = jsPsych.timelineVariable('outcome_right', true)
+        data.forced = jsPsych.timelineVariable('forced', true)
+        data.stimulus_estimation = jsPsych.timelineVariable('stimulus_estimation', true)
+        data.estimation = 'n/a'
+        // Add choice data
         if(data.key_press == 70){
           data.choice = 'left'
           data.outcome = jsPsych.timelineVariable('outcome_left', true)
@@ -86,43 +226,17 @@ var choice = {
           data.choice = 'right'
           data.outcome = jsPsych.timelineVariable('outcome_right', true)
         } else {
-          data.choice = 'false'
+          data.choice = 'n/a'
           data.outcome = 'n/a'
         }
       }
-    },
-    {
-      // Display outcome
-      type: 'html-keyboard-response',
-      stimulus: function(){
-        var html = "<p>"+jsPsych.data.get().last(1).values()[0].outcome+"</p>";
-        return html;
-      },
-      trial_duration: 1000,
-      choices: jsPsych.NO_KEYS
     }
-  ],
-  timeline_variables: [
-    {stimulus_left: 'stimuli/a2.png', stimulus_right: 'stimuli/a3.png', outcome_left: 94, outcome_right: 26},
-    {stimulus_left: 'stimuli/a3.png', stimulus_right: 'stimuli/a1.png', outcome_left: 33, outcome_right: 10},
-    {stimulus_left: 'stimuli/a3.png', stimulus_right: 'stimuli/a1.png', outcome_left: 12, outcome_right: 82},
   ]
 }
 
-
 // Forced choice trials
-var forced_choice = {
+var forced = {
   timeline: [
-    {
-      // Fixation cross between different trials
-      type: 'html-keyboard-response',
-      stimulus: function(){
-        var html = "<img src='stimuli/fixation.png' style='margin:0px "+50/100 * img_scale+"px; width: "+400/100 * img_scale+"px;'>";
-        return html;
-      },
-      trial_duration: 1000,
-      choices: jsPsych.NO_KEYS
-    },
     {
       // Trial presenting two stimuli
       type: 'html-keyboard-response',
@@ -142,13 +256,22 @@ var forced_choice = {
       },
       // Record pressed button and associated reward
       on_finish: function(data){
+        // Add constant variables
+        data.type = jsPsych.timelineVariable('type', true)
+        data.stimulus_left = jsPsych.timelineVariable('stimulus_left', true)
+        data.stimulus_right = jsPsych.timelineVariable('stimulus_right', true)
+        data.outcome_left = jsPsych.timelineVariable('outcome_left', true)
+        data.outcome_right = jsPsych.timelineVariable('outcome_right', true)
+        data.forced = jsPsych.timelineVariable('forced', true)
+        data.stimulus_estimation = jsPsych.timelineVariable('stimulus_estimation', true)
+        data.estimation = 'n/a'
         // Check pressed button
         if(data.key_press == 70){
           data.choice = 'left'
         } else if(data.key_press == 74){
           data.choice = 'right'
         } else {
-          data.choice = 'false'
+          data.choice = 'n/a'
         }
         // Check if pressed button was forced
         if(data.choice == jsPsych.timelineVariable('forced', true)){
@@ -157,58 +280,226 @@ var forced_choice = {
           data.outcome = 'n/a'
         }
       }
-    },
-    {
-      // Give feeback
-      type: 'html-keyboard-response',
-      stimulus: function(){
-        if(jsPsych.data.get().last(1).values()[0].outcome == 'n/a'){
-          var html = "<p>Please always select the framed stimulus</p>";
-          return html;
-        } else {
-          var html = "<p>"+jsPsych.data.get().last(1).values()[0].outcome+"</p>";
-          return html;
-        }
-      },
-      trial_duration: 1000,
-      choices: jsPsych.NO_KEYS
     }
-  ],
-  // Variables for this trial type: right stimulus, left stimulus, right outcome, and left outcome
-  timeline_variables: [
-    {stimulus_left: 'stimuli/a1_forced.png', stimulus_right: 'stimuli/a3.png', outcome_left: 55, outcome_right: 21, forced: 'left'},
-    {stimulus_left: 'stimuli/a2.png', stimulus_right: 'stimuli/a1_forced.png', outcome_left: 20, outcome_right: 49, forced: 'right'},
-    {stimulus_left: 'stimuli/a3_forced.png', stimulus_right: 'stimuli/a2.png', outcome_left: 10, outcome_right: 90, forced: 'left'},
   ]
 }
 
-// Rating trials
-var rating = {
+// estimation trials
+var estimation = {
   timeline: [
     {
       type: 'html-slider-response',
       stimulus: function(){
-        var html = "<img src='"+jsPsych.timelineVariable('stimulus', true)+"' style='margin:0px "+50/100 * img_scale+"px; width: "+1.5 * 400/100 * img_scale+"px;'>";
+        var html = "<img src='"+jsPsych.timelineVariable('stimulus_estimation', true)+"' style='margin:0px "+50/100 * img_scale+"px; width: "+1.5 * 400/100 * img_scale+"px;'>";
         return html;
       },
       labels: ['0', '20', '40', '60', '80', '100'],
       //labels: ['0','100'],
       step: 1,
-      prompt: "<p>What reward will you get?</p>"
+      prompt: "<p>What reward will you get?</p>",
+      trial_duration: 10000,
+      require_movement: true,
+      on_finish: function(data){
+        // Add constant variables
+        data.type = jsPsych.timelineVariable('type', true)
+        data.stimulus_left = jsPsych.timelineVariable('stimulus_left', true)
+        data.stimulus_right = jsPsych.timelineVariable('stimulus_right', true)
+        data.outcome_left = jsPsych.timelineVariable('outcome_left', true)
+        data.outcome_right = jsPsych.timelineVariable('outcome_right', true)
+        data.forced = jsPsych.timelineVariable('forced', true)
+        data.stimulus_estimation = jsPsych.timelineVariable('stimulus_estimation', true)
+        if(data.response != null){
+          data.estimation = data.response
+        } else if(data.response == null){
+          data.estimation = 'n/a'
+        }
+      }
     }
-  ],
-  timeline_variables: [
-    {stimulus: 'stimuli/a1.png'},
-    {stimulus: 'stimuli/a2.png'},
-    {stimulus: 'stimuli/a3.png'},
   ]
+}
 
-};
 
-//timeline.push(choice)
-timeline.push(forced_choice)
-//timeline.push(rating)
+// If node: Free choice
+var if_free = {
+  timeline: [fixation, free, feedback],
+  conditional_function: function(){
+    var type = jsPsych.timelineVariable('type', true);
+    if(type == 'free'){
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
 
+// If node: Forced choice
+var if_forced = {
+  timeline: [fixation, forced, feedback],
+  conditional_function: function(){
+    var type = jsPsych.timelineVariable('type', true);
+    if(type == 'forced'){
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+// If node: Estimation trials
+var if_estimation = {
+  timeline: [fixation, estimation, feedback],
+  conditional_function: function(){
+    var type = jsPsych.timelineVariable('type', true);
+    if(type == 'estimation'){
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+// If node: Break
+var if_break = {
+  timeline: [take_a_break],
+  conditional_function: function(){
+    if(jsPsych.timelineVariable('type', true) == 'break'){
+      return true;
+    } else {
+      return false;
+    }
+  },
+  on_finish: function(data){
+    data.n_trials_without_break = n_trials_without_break
+  }
+}
+
+var train_free = {
+  timeline: [if_free],
+  timeline_variables: [
+    {type: 'free', stimulus_left: 'stimuli/a1.png', stimulus_right: 'stimuli/a2.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
+    {type: 'free', stimulus_left: 'stimuli/a3.png', stimulus_right: 'stimuli/a1.png', outcome_left: 12, outcome_right: 33, forced: 'n/a', stimulus_estimation: 'n/a'},
+    {type: 'free', stimulus_left: 'stimuli/a3.png', stimulus_right: 'stimuli/a2.png', outcome_left: 9, outcome_right: 19, forced: 'n/a', stimulus_estimation: 'n/a'},
+    {type: 'free', stimulus_left: 'stimuli/a1.png', stimulus_right: 'stimuli/a3.png', outcome_left: 57, outcome_right: 72, forced: 'n/a', stimulus_estimation: 'n/a'}
+  ]
+}
+
+var train_forced = {
+  timeline: [if_forced],
+  timeline_variables: [
+    {type: 'forced', stimulus_left: 'stimuli/a1_forced.png', stimulus_right: 'stimuli/a2.png', outcome_left: 42, outcome_right: 0, forced: 'left', stimulus_estimation: 'n/a'},
+    {type: 'forced', stimulus_left: 'stimuli/a3_forced.png', stimulus_right: 'stimuli/a1.png', outcome_left: 64, outcome_right: 0, forced: 'left', stimulus_estimation: 'n/a'},
+    {type: 'forced', stimulus_left: 'stimuli/a3.png', stimulus_right: 'stimuli/a2_forced.png', outcome_left: 0, outcome_right: 38, forced: 'right', stimulus_estimation: 'n/a'},
+    {type: 'forced', stimulus_left: 'stimuli/a1.png', stimulus_right: 'stimuli/a3_forced.png', outcome_left: 0, outcome_right: 47, forced: 'right', stimulus_estimation: 'n/a'}
+  ]
+}
+
+var train_estimation = {
+  timeline: [if_estimation],
+  timeline_variables: [
+    {type: 'estimation', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'stimuli/a1.png'},
+    {type: 'estimation', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'stimuli/a2.png'},
+    {type: 'estimation', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'stimuli/a3.png'},
+  ]
+}
+
+// Training
+var training = {
+  timeline: [
+    {
+      type: 'html-keyboard-response',
+      stimulus: function(){
+        var html = "<p>Hello and thank you for taking part in this experiment! "
+        html += "This is a placeholder for a task discription !</p>"
+        html += "<p>Next we will show you how the task works.</p>"
+        html += "<p><br></p>"
+        html += "<p>First, we would loike to ask you to place your index fingers of both hands on the f and the j key on your keyboard!</p>"
+        html += "<p><br></p>"
+        html += "<p>Please press 'f' or 'j' on your keyboard to continue.</p>"
+        return html
+      },
+      choices: ['f', 'j']
+    },
+    {
+      type: 'html-keyboard-response',
+      stimulus: function(){
+        var html = "<p>During the task, we will mainly ask you to make a decision between two available options.</p>"
+        html += "<p>It will look like this:</p>"
+        html += "<p><br></p>"
+        html += "<img src='stimuli/a1.png' style='width: 100px;'>";
+        html += "<img src='stimuli/fixation.png' style='width: 100px;'>";
+        html += "<img src='stimuli/a2.png' style='width: 100px;'>";
+        html += "<p><br></p>"
+        html += "<p>Here you have a left option (A) and a right option (B). The cross in the middle is there so you can focus on it with your eyes.</p>"
+        html += "<p>You can decide between these two options by pressing [f] for the left option or [j] for the option to the right.</p>"
+        html += "<p>Please press 'f' or 'j' on your keyboard to continue.</p>"
+        return html
+      },
+      choices: ['f', 'j']
+    },
+    {
+      type: 'html-keyboard-response',
+      stimulus: function(){
+        var html = "<p>Every time you make a choice you will get some points. These will range between 1 and 100. We will show you how many points you got every time you make a decision.</p>"
+        html += "<p>Each option will sometimes give you more and sometimes less points! Your goal is to find out which option to chose to get the most points possible!</p>"
+        html += "<p>Let's give it a few trys, shall we?</p>"
+        html += "<p>Please press 'f' or 'j' on your keyboard to continue.</p>"
+        return html
+      },
+      choices: ['f', 'j']
+    },
+    train_free,
+    {
+      type: 'html-keyboard-response',
+      stimulus: function(){
+        var html = "<p>Good job! This will be the main part of the task.</p>"
+        html += "<p>Sometimes you will encounter a frame around an option:</p>"
+        html += "<p><br></p>"
+        html += "<img src='stimuli/a1_forced.png' style='width: 100px;'>";
+        html += "<img src='stimuli/fixation.png' style='width: 100px;'>";
+        html += "<img src='stimuli/a2.png' style='width: 100px;'>";
+        html += "<p><br></p>"
+        html += "<p>This means that you HAVE TO chose the framed option. You will still get the points for that option. Let's give it a try!</p>"
+        html += "<p>Please press 'f' or 'j' on your keyboard to continue.</p>"
+        return html
+      },
+      choices: ['f', 'j']
+    },
+    train_forced,
+    {
+      type: 'html-keyboard-response',
+      stimulus: function(){
+        var html = "<p>Awesome! This is going well!</p>"
+        html += "<p>Finally, we will sometimes ask you what you think the score will be if you would chose a certain option. This will look something like this:</p>"
+        html += "<p><br></p>"
+        html += "<img src='stimuli/training_slider.png' style='width: 400px;'>";
+        html += "<p><br></p>"
+        html += "<p>Here you can use your mouse to move the slider and tell us what you think the points will be! You will have to move the slider at least once. You can submit your choice by clicking on the 'Continue' button.</p>"
+        html += "<p>Let's try it out!</p>"
+        html += "<p>Please press 'f' or 'j' on your keyboard to continue.</p>"
+        return html
+      },
+      choices: ['f', 'j']
+    },
+    train_estimation
+  ]
+}
+
+//
+var experiment = {
+  timeline: [if_free, if_forced, if_estimation, if_break],
+  timeline_variables: [
+    {type: 'free', stimulus_left: 'stimuli/a2.png', stimulus_right: 'stimuli/a3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
+    {type: 'forced', stimulus_left: 'stimuli/a2_forced.png', stimulus_right: 'stimuli/a3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
+    {type: 'estimation', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'stimuli/a1.png'},
+    {type: 'break', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'n/a'},
+    {type: 'free', stimulus_left: 'stimuli/a2.png', stimulus_right: 'stimuli/a3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
+    {type: 'forced', stimulus_left: 'stimuli/a2_forced.png', stimulus_right: 'stimuli/a3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
+    {type: 'estimation', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'stimuli/a1.png'}
+  ]
+}
+
+timeline.push(training)
+timeline.push(experiment)
 
 // function to save data
 function saveData(name, data){
@@ -224,7 +515,8 @@ jsPsych.init({
   override_safe_mode: true,
   preload_images: stimuli,
   // Save data to file
-  on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); }
+  //on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); }
+  on_finish: function(){jsPsych.data.displayData(); }
 });
 
 </script>
