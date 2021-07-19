@@ -35,13 +35,14 @@ var train_screen_greet = {
     {
       type: 'html-keyboard-response',
       stimulus: function(){
-        var html = "<p>Hello and thank you for taking part in this experiment! "
-        html += "This is a placeholder for a task discription !</p>"
+        var html = "<h1>Hello and thank you for taking part in this experiment! </h1>"
+        html += "<p><br></p>"
+        html += "<p>This is a placeholder for a task discription !</p>"
         html += "<p>Next we will show you how the task works.</p>"
         html += "<p><br></p>"
-        html += "<p>First, we would like to ask you to place your index fingers of both hands on the f and the j key on your keyboard!</p>"
+        html += "<p>First, we would like to ask you to place your index fingers of both hands on the <b>[ F ]</b> and the <b>[ J ]</b> key on your keyboard!</p>"
         html += "<p><br></p>"
-        html += "<p>Please press 'f' or 'j' on your keyboard to continue.</p>"
+        html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue.</p>"
         return html
       },
       choices: ['f', 'j']
@@ -62,8 +63,8 @@ var train_screen_free = {
         html += "<img src='stimuli/a2.png' style='width: 100px;'>";
         html += "<p><br></p>"
         html += "<p>Here you have a left option (A) and a right option (B). The cross in the middle is there so you can focus on it with your eyes.</p>"
-        html += "<p>You can decide between these two options by pressing [f] for the left option or [j] for the option to the right.</p>"
-        html += "<p>Please press 'f' or 'j' on your keyboard to continue.</p>"
+        html += "<p>You can decide between these two options by pressing <b>[ F ]</b> for the left option or <b>[ J ]</b> for the option to the right.</p>"
+        html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue.</p>"
         return html
       },
       choices: ['f', 'j']
@@ -80,7 +81,7 @@ var train_screen_points = {
         html += "<p>Each option will sometimes give you more and sometimes less points! Your goal is to find out which option to chose to get the most points possible!</p>"
         html += "<p><br>The more points you will get the more pay you will receive so try to get a high score!<br></p>"
         html += "<p>Let's give it a few trys, shall we?</p>"
-        html += "<p>Please press 'f' or 'j' on your keyboard to continue.</p>"
+        html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue.</p>"
         return html
       },
       choices: ['f', 'j']
@@ -100,9 +101,10 @@ var train_screen_forced = {
         html += "<img src='stimuli/fixation.png' style='width: 100px;'>";
         html += "<img src='stimuli/a2.png' style='width: 100px;'>";
         html += "<p><br></p>"
-        html += "<p>This means that you HAVE TO chose the framed option. You will still get the points for the framed option. If you chose the option without the frame you will not get any points so please chose the framed option.</p>"
+        html += "<h3>This means that you <b>HAVE TO chose the framed option</b>.</h3>"
+        html += "You will still get the points for the framed option. If you chose the option without the frame you will not get any points so please chose the framed option.</p>"
         html += "<p>Let's give it a try!</p>"
-        html += "<p>Please press 'f' or 'j' on your keyboard to continue.</p>"
+        html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue.</p>"
         return html
       },
       choices: ['f', 'j']
@@ -122,7 +124,7 @@ var train_screen_estimation = {
         html += "<p><br></p>"
         html += "<p>Here you can use your mouse to move the slider and tell us what you think the points will be! You will have to move the slider at least once. You can submit your choice by clicking on the 'Continue' button.</p>"
         html += "<p>Let's try it out!</p>"
-        html += "<p>Please press 'f' or 'j' on your keyboard to continue.</p>"
+        html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue.</p>"
         return html
       },
       choices: ['f', 'j']
@@ -138,7 +140,7 @@ var train_screen_break = {
         var html = "<p>From time to time you will get the option to take a short break.</p>"
         html += "<img src='stimuli/break.png'; style='width: " + 300/100 * img_scale+"px'>"
         html += "<p>Feel free to rest your hands and eyes during these breaks and continue when you are ready!</p>"
-        html += "<p>Please press 'f' or 'j' on your keyboard to continue.</p>"
+        html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue.</p>"
         return html
       },
       choices: ['f', 'j']
@@ -154,7 +156,7 @@ var train_second_run = {
         var html = "<p>Halfway through the task we will change the available three options which also give different amounts of points.</p>"
         html += "<p>The task works exactly the same, also for the new three options!</p>"
         html += "<p>Before that happens we will notify you and also give you some time for another break.</p>"
-        html += "<p>Please press 'f' or 'j' on your keyboard to continue.</p>"
+        html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue.</p>"
         return html
       },
       choices: ['f', 'j']
@@ -170,11 +172,11 @@ var train_screen_last = {
         var html = "<p>And thats it!</p>"
         html += "<p>You can now get started with the task!</p>"
         html += "<p>The options there are represented by different symbols but everything works exactly as we showed you.</p>"
-        html += "<p>If you are still not quite sure what to do you can REPEAT THIS TUTORIAL by pressing 'f' on your keyboard.</p>"
-        html += "<p>If you want to CONTINUE TO THE TASK, please press 'j' on your keyboard.</p>"
+        html += "<p>If you are still not quite sure what to do you can REPEAT THIS TUTORIAL by pressing <b>[ F ]</b> on your keyboard.</p>"
+        html += "<p>If you want to CONTINUE TO THE TASK, please press <b>[ J ]</b> on your keyboard.</p>"
         html += "<p>Have fun and thank you for your participation!</p>"
-        html += "<p><br><br>Press 'f' to repeat this tutorial</p>"
-        html += "<p>Press 'j' to continue with the task</p>"
+        html += "<p><br><br>Press <b>[ F ]</b> to repeat this tutorial</p>"
+        html += "<p>Press [j] to continue with the task</p>"
         return html
       },
       choices: ['f', 'j']
@@ -191,9 +193,9 @@ var train_screen_repeat_end = {
         var html = "<p>And thats it!</p>"
         html += "<p>You can now get started with the task!</p>"
         html += "<p>The options there are represented by different symbols but everything works exactly as we showed you.</p>"
-        html += "<p>We would now ask you to continue with the task by pressing either the 'f' or the 'j' key on your keyboard.</p>"
+        html += "<p>We would now ask you to continue with the task by pressing either the [f] or the [j] key on your keyboard.</p>"
         html += "<p>Have fun and thank you for your participation!</p>"
-        html += "<p><br><br>Press 'f' or 'j' to continue with the task</p>"
+        html += "<p><br><br>Press <b>[ F ]</b> or <b>[ J ]</b> to continue with the task</p>"
         return html
       },
       choices: ['f', 'j']

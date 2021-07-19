@@ -44,7 +44,8 @@
 
 .jspsych-display-element {
   font-family: 'Open Sans', 'Arial', sans-serif;
-  font-size: 18px;
+  font-size: 1.5vw;
+  /* font-size: 18px; */
   line-height: 1.6em;
 }
 
@@ -52,7 +53,8 @@
 
 .jspsych-display-element input[type="text"] {
   font-family: 'Open Sans', 'Arial', sans-serif;
-  font-size: 14px;
+  font-size: 1vw;
+  /* font-size: 14px; */
 }
 
 /* borrowing Bootstrap style for btn elements, but combining styles a bit */
@@ -100,10 +102,10 @@
 
 .jspsych-slider {
   appearance: none;
-  -webkit-appearance: none; 
+  -webkit-appearance: none;
   -moz-appearance: none;
-  width: 100%; 
-  background: transparent; 
+  width: 100%;
+  background: transparent;
 }
 .jspsych-slider:focus {
   outline: none;

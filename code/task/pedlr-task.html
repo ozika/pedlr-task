@@ -27,7 +27,8 @@
   <link href="jspsych-6.2.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
 </head>
 
-<body style="background-color:#000000; color:white">
+<body
+style="background-color:#000000; color:white">
 </body>
 
 <script>
@@ -100,7 +101,7 @@ var name_design_r1 = names_designs_r1[sample]
 var name_design_r2 = names_designs_r2[sample]
 
 // Set scaling of images and margins to adjust size of experiment (in percentage)
-var img_scale = 30
+var img_scale = 40
 
 // Add stable variables to data
 jsPsych.data.addProperties({
@@ -119,7 +120,9 @@ var timeline = []
 // Experiment run 1 procedure
 var experiment_r1 = {
   timeline: [if_free, if_forced, if_estimation, if_break],
+  // Get timeline from design
   //timeline_variables: design_r1
+  // Example timeline for easy task testing (6 examples with break in between)
   timeline_variables: [
     {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
     {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
@@ -134,7 +137,9 @@ var experiment_r1 = {
 // Experiment run 2 procedure
 var experiment_r2 = {
   timeline: [if_free, if_forced, if_estimation, if_break],
+  // Get timeline from design
   //timeline_variables: design_r2
+  // Example timeline for easy task testing (6 examples with break in between)
   timeline_variables: [
     {type: 'free', stimulus_left: 'stimuli/s5.png', stimulus_right: 'stimuli/s6.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
     {type: 'forced', stimulus_left: 'stimuli/s5_forced.png', stimulus_right: 'stimuli/s6.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
@@ -146,6 +151,7 @@ var experiment_r2 = {
   ]
 }
 
+// Trial type of halftime screen (stimulus change)
 var halftime = {
   timeline: [
     {
@@ -165,7 +171,7 @@ var halftime = {
   ]
 }
 
-// Fill timeline with parts of experiment
+// Fill experiment timeline with parts of experiment
 timeline.push(training)
 timeline.push(experiment_r1)
 timeline.push(halftime)
