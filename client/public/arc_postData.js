@@ -1,3 +1,7 @@
+// Source SendToProlific and wait function
+src="arc_SendToProlific.js"
+src="arc_wait.js"
+
 // Function to update URL send back to prolific (with completion code in URL)
 var postData = function(data){
     $.ajax({

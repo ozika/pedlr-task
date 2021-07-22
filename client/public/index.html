@@ -54,7 +54,7 @@
 <script>
 
 //preload stimuli files
-// Get folder contents of stimuli puctures
+// Get folder contents of stimuli pictures
 var stimuli = ['stimuli/a1.png',
                'stimuli/a1.png',
                'stimuli/a1_forced.png',
@@ -201,18 +201,10 @@ var halftime = {
 
 // Fill experiment timeline with parts of experiment
 timeline.push(info_and_consent)
-timeline.push(training)
-timeline.push(experiment_r1)
+//timeline.push(training)
+//timeline.push(experiment_r1)
 timeline.push(halftime)
-timeline.push(experiment_r2)
-
-// function to save data
-//function saveData(name, data){
-//  var xhr = new XMLHttpRequest();
-//  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
-//  xhr.setRequestHeader('Content-Type', 'application/json');
-//  xhr.send(JSON.stringify({filename: name, filedata: data}));
-//}
+//timeline.push(experiment_r2)
 
 // Set default count for attempts and errorattempts (used by postData function)
 var attempts = 0 , errorattempts = 0
@@ -227,7 +219,7 @@ jsPsych.init({
   //  SendToProlific()
   //  senddataNend()
   // }
-  on_finish: function(){jsPsych.data.displayData(); }
+  on_finish: function(){jsPsych.data.displayData()}
 });
 
 </script>
