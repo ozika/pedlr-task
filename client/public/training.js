@@ -35,17 +35,22 @@ var train_screen_greet = {
     {
       type: 'html-keyboard-response',
       stimulus: function(){
-        var html = "<h1>Hello and thank you for taking part in this experiment! </h1>"
+        var html = "<h1>Hello and thank you for taking</h1>"
+        html += "<h1>part in our study! </h1>"
         html += "<p><br></p>"
-        html += "<p>This is a placeholder for a task discription !</p>"
+        html += "<p>In this study we examine how humans make reward-based decisions. To this end, we developed a task in which you will have to chose from two different options. After each choice </p>"
         html += "<p>Next we will show you how the task works.</p>"
         html += "<p><br></p>"
-        html += "<p>First, we would like to ask you to place your index fingers of both hands on the <b>[ F ]</b> and the <b>[ J ]</b> key on your keyboard!</p>"
+        html += "<p>First, we would like to ask you to place your index fingers of both hands<br> on the <b>[ F ]</b> and the <b>[ J ]</b> key on your keyboard!</p>"
         html += "<p><br></p>"
         html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue.</p>"
         return html
       },
-      choices: ['f', 'j']
+      choices: ['f', 'j'],
+      on_finish: function(data){
+        data.stimulus = 'train_screen_greet'
+        data.type = 'train_screen_greet'
+      }
     }
   ]
 }
@@ -55,15 +60,15 @@ var train_screen_free = {
     {
       type: 'html-keyboard-response',
       stimulus: function(){
-        var html = "<p>During the task, we will mainly ask you to make a decision between two available options.</p>"
+        var html = "<p>During the task, you will have to chose between two available options.</p>"
         html += "<p>It will look like this:</p>"
         html += "<p><br></p>"
         html += "<img src='stimuli/a1.png' style='width: 100px;'>";
         html += "<img src='stimuli/fixation.png' style='width: 100px;'>";
         html += "<img src='stimuli/a2.png' style='width: 100px;'>";
         html += "<p><br></p>"
-        html += "<p>Here you have a left option (A) and a right option (B). The cross in the middle is there so you can focus on it with your eyes.</p>"
-        html += "<p>You can decide between these two options by pressing <b>[ F ]</b> for the left option or <b>[ J ]</b> for the option to the right.</p>"
+        html += "<p>Here you have a left option (A) and a right option (B).<br>The cross in the middle is there so you can focus on it with your eyes.</p>"
+        html += "<p>You will select one of these two options by pressing <b>[ F ]</b> for the left option or <b>[ J ]</b> for the option to the right.</p>"
         html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue.</p>"
         return html
       },
@@ -77,10 +82,10 @@ var train_screen_points = {
     {
       type: 'html-keyboard-response',
       stimulus: function(){
-        var html = "<p>Every time you make a choice you will get some points. These will range between 1 and 100. We will show you how many points you got every time you make a decision.</p>"
-        html += "<p>Each option will sometimes give you more and sometimes less points! Your goal is to find out which option to chose to get the most points possible!</p>"
+        var html = "<p>Every time you make a choice you will get between 1 and 100 points.<br>You will see how many points you got every time you make a choice.</p>"
+        html += "<p>The amount of points you get from the same option will vary!<br>Your goal will be to find out which option to chose to get the most points possible!</p>"
         html += "<p><br>The more points you will get the more pay you will receive so try to get a high score!<br></p>"
-        html += "<p>Let's give it a few trys, shall we?</p>"
+        html += "<p>We will now go through some examples!</p>"
         html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue.</p>"
         return html
       },

@@ -3,6 +3,8 @@
 
 <head>
   <title>pedlr-task</title>
+
+  <!-- Source jspsych plugins -->
   <script src="jspsych-6.2.0/jspsych.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-instructions.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-html-keyboard-response.js"></script>
@@ -11,10 +13,15 @@
   <script src="jspsych-6.2.0/plugins/jspsych-fullscreen.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-canvas-slider-response.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-call-function.js"></script>
+  <script src="jspsych-6.2.0/plugins/jspsych-external-html.js"></script>
+
+  <!-- Source package to get browser of participant -->
   <script src="bowser/bowser.js"></script>
 
+  <!-- Source .json including all designs -->
   <script type="text/javascript" src="designs/designs.js" type="application/json"></script>
 
+  <!-- Source own functions for different trials/parts of task -->
   <script src="take_a_break.js"></script>
   <script src="fixation.js"></script>
   <script src="feedback.js"></script>
@@ -24,11 +31,24 @@
   <script src="if_nodes.js"></script>
   <script src="training.js"></script>
 
+  <!-- Function to display study info and consent (including check of given consent)-->
+  <script src="info_and_consent.js"></script>
+
+  <!-- Source JQuery for data saving -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+  <!-- Source functions for ARC server hosting (and communication with Prolific) -->
+  <script src="arc_postData.js"></script>
+  <script src="arc_seddataNend.js"></script>
+  <script src="arc_SendToProlific.js"></script>
+  <script src="arc_wait.js"></script>
+
+  <!-- Use CSS style sheet of jspsych (gives e.g. font, font size, ... of displayed trials) -->
   <link href="jspsych-6.2.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
 </head>
 
-<body
-style="background-color:#000000; color:white">
+<!-- Color of background and font for experiment -->
+<body style="background-color:#000000; color:white">
 </body>
 
 <script>
@@ -103,15 +123,23 @@ var name_design_r2 = names_designs_r2[sample]
 // Set scaling of images and margins to adjust size of experiment (in percentage)
 var img_scale = 40
 
+// Create random subject string (replace with prolific ID later)
+function MakeId() {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < 7; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+}
+var participant_id = MakeId()
+
 // Add stable variables to data
 jsPsych.data.addProperties({
+      id: participant_id,
       name_design_r1: name_design_r1,
       name_design_r2: name_design_r2,
-      browser_name: bowser.name,
-      browser_version: bowser.version,
-      os_name: bowser.osname,
-      os_version: bowser.osversion,
-      screen_resolution: screen.width + ' x ' + screen.height,
       window_resolution: window.innerWidth + ' x ' + window.innerHeight
     });
 
@@ -163,7 +191,7 @@ var halftime = {
         html += "<img src='stimuli/break.png'; style='width: " + 300/100 * img_scale+"px'>"
         html += "<p><br>We will now change the available three options which also give different amounts of points.</p>"
         html += "<p>The task works exactly the same, also for the new three options!</p>"
-        html += "<p><br><br>Press 'f' or 'j' to continue with the task if you are ready.</p>"
+        html += "<p><br><br>Press <b>[ F ]</b> or <b>[ J ]</b> to continue with the task if you are ready.</p>"
         return html
       },
       choices: ['f', 'j']
@@ -172,26 +200,33 @@ var halftime = {
 }
 
 // Fill experiment timeline with parts of experiment
+timeline.push(info_and_consent)
 timeline.push(training)
 timeline.push(experiment_r1)
 timeline.push(halftime)
 timeline.push(experiment_r2)
 
 // function to save data
-function saveData(name, data){
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify({filename: name, filedata: data}));
-}
+//function saveData(name, data){
+//  var xhr = new XMLHttpRequest();
+//  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+//  xhr.setRequestHeader('Content-Type', 'application/json');
+//  xhr.send(JSON.stringify({filename: name, filedata: data}));
+//}
+
+// Set default count for attempts and errorattempts (used by postData function)
+var attempts = 0 , errorattempts = 0
 
 // Run experiment
 jsPsych.init({
   timeline: timeline,
   override_safe_mode: true,
   preload_images: stimuli,
-  // Save data to file
-  //on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); }
+  //on_finish: function(){
+  //  completion_code = 'COMPLETION_PATTERN'
+  //  SendToProlific()
+  //  senddataNend()
+  // }
   on_finish: function(){jsPsych.data.displayData(); }
 });
 
