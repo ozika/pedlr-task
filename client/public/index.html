@@ -37,12 +37,6 @@
   <!-- Source JQuery for data saving -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
-  <!-- Source functions for ARC server hosting (and communication with Prolific) -->
-  <script src="arc_postData.js"></script>
-  <script src="arc_seddataNend.js"></script>
-  <script src="arc_SendToProlific.js"></script>
-  <script src="arc_wait.js"></script>
-
   <!-- Use CSS style sheet of jspsych (gives e.g. font, font size, ... of displayed trials) -->
   <link href="jspsych-6.2.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
 </head>
@@ -135,6 +129,22 @@ function MakeId() {
 }
 var participant_id = MakeId()
 
+// Function to get query variables from URL (e.g. prolific id); saves all query variables into vars
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+// Save prolific ID
+var prolific_id = getUrlVars()["PROLIFIC_ID"]
+
 // Add stable variables to data
 jsPsych.data.addProperties({
       id: participant_id,
@@ -199,15 +209,81 @@ var halftime = {
   ]
 }
 
+// Set default count for attempts and errorattempts (used by postData function)
+var attempts = 0 , errorattempts = 0
+
+// Function to update URL send back to prolific (with completion code in URL)
+var postData = function(data){
+    $.ajax({
+        async: false, // should still work, see https://stackoverflow.com/questions/11448011/jquery-ajax-methods-async-option-deprecated-what-now
+        url: "https://arc-vlab.mpib-berlin.mpg.de/pedlr-task/submit",
+        type: 'post',
+        headers: {
+            'Access-Control-Allow-Origin': '*' // not sure if this is needed
+        },
+        data : data,
+        processData: false,
+        contentType: "application/json; charset=utf-8",
+        dataType: 'JSON',
+        success: function (output) {
+            // whatever the data try 3 times
+            attempts=attempts+1
+            if (output.code==0){SendToProlific(); return} // if all good, sending to prolific and done. return is in case prolific is off
+            wait(2000) // wait 3 secodns
+            // if didnt sent to prolific so the data was sent but other message from ARC than 0 - then try to send the data again up to 3 times
+            if (attempts<3){postData(data)} // will not work after attempt 3.
+            // then we try to send the error message itseld for 4th time attempt only
+            if (attempts<4){postData(JSON.stringify(output))}
+            // if it got here that means it tries 3 times to ARC, got non 0 code, and then sent the error to ARC and was succsfull
+            SendToProlific();
+        },// end success
+        error: function (error) { // if the sent was not successfull, i.e. not even an ARC code
+            wait(2000) // wait 3 secodns
+            errorattempts=errorattempts+1
+            if (errorattempts<3){postData(data)} //  will not work after attempt 3
+            // then we try to send the error message itsels.
+            if (errorattempts<4){postData(JSON.stringify(error))}
+            // if everything failes, then send to prolific
+            SendToProlific()
+        }// the whole process is not 100% perfect but will try maximum of 7 or 8 times which means ca 15 seconds and then send back to prolific.
+       });
+     }
+
+// Function to send data and end experiment (will be called on finish)
+function senddataNend(){
+    var JSDATA = jsPsych.data.get().json()
+    const body = {partial: false, data: JSDATA} //, structure according to ARC
+    postData(JSON.stringify(body))
+  }
+
+// Function to update URL send back to prolific (with completion code in URL)
+function SendToProlific(){
+    location.replace("https://app.prolific.co/submissions/complete?cc="+completion_code);} // cant press back
+
+// Function to wait on arc server response
+function wait(ms){
+    var start = new Date().getTime();
+    var end = start;
+    while(end < start + ms) {end = new Date().getTime(); }
+ }
+
+// Function to download data locally (used only for debugging)
+function savedata(File2Save,name,jsonfy=true) {
+     if (jsonfy){ var File2Save = JSON.stringify(File2Save);}
+     var a = document.createElement("a");
+     var file = new Blob([File2Save], {type: 'application/json'});
+     a.href = URL.createObjectURL(file);
+     a.download = name;
+     a.click();
+     }
+
 // Fill experiment timeline with parts of experiment
 timeline.push(info_and_consent)
 //timeline.push(training)
-//timeline.push(experiment_r1)
+timeline.push(experiment_r1)
 timeline.push(halftime)
-//timeline.push(experiment_r2)
+timeline.push(experiment_r2)
 
-// Set default count for attempts and errorattempts (used by postData function)
-var attempts = 0 , errorattempts = 0
 
 // Run experiment
 jsPsych.init({
@@ -219,7 +295,12 @@ jsPsych.init({
   //  SendToProlific()
   //  senddataNend()
   // }
-  on_finish: function(){jsPsych.data.displayData()}
+  //on_finish: function(){jsPsych.data.displayData()}
+  on_finish: function(){
+    full_data = jsPsych.data.get().json()
+    file_name = 'pedlr_data_'+participant_id
+    savedata(full_data, file_name, false)
+  }
 });
 
 </script>
