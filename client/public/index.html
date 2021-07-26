@@ -8,12 +8,14 @@
   <script src="jspsych-6.2.0/jspsych.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-instructions.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-html-keyboard-response.js"></script>
+  <script src="jspsych-6.2.0/plugins/jspsych-html-button-response.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-html-slider-response.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-image-keyboard-response.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-fullscreen.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-canvas-slider-response.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-call-function.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-external-html.js"></script>
+  <script src="jspsych-6.2.0/plugins/jspsych-survey-multi-choice.js"></script>
 
   <!-- Source package to get browser of participant -->
   <script src="bowser/bowser.js"></script>
@@ -30,6 +32,9 @@
   <script src="estimation.js"></script>
   <script src="if_nodes.js"></script>
   <script src="training.js"></script>
+
+  <!-- Source attion checks -->
+  <script src="attention_checks.js"></script>
 
   <!-- Function to display study info and consent (including check of given consent)-->
   <script src="info_and_consent.js"></script>
@@ -278,11 +283,12 @@ function savedata(File2Save,name,jsonfy=true) {
      }
 
 // Fill experiment timeline with parts of experiment
-timeline.push(info_and_consent)
+//timeline.push(info_and_consent)
+timeline.push(attention_check)
 //timeline.push(training)
-timeline.push(experiment_r1)
-timeline.push(halftime)
-timeline.push(experiment_r2)
+//timeline.push(experiment_r1)
+//timeline.push(halftime)
+//timeline.push(experiment_r2)
 
 
 // Run experiment
@@ -295,12 +301,12 @@ jsPsych.init({
   //  SendToProlific()
   //  senddataNend()
   // }
-  //on_finish: function(){jsPsych.data.displayData()}
-  on_finish: function(){
-    full_data = jsPsych.data.get().json()
-    file_name = 'pedlr_data_'+participant_id
-    savedata(full_data, file_name, false)
-  }
+  on_finish: function(){jsPsych.data.displayData()}
+  // on_finish: function(){
+  //   full_data = jsPsych.data.get().json()
+  //   file_name = 'pedlr_data_'+participant_id
+  //   savedata(full_data, file_name, false)
+  // }
 });
 
 </script>
