@@ -152,7 +152,8 @@ var prolific_id = getUrlVars()["PROLIFIC_ID"]
 
 // Add stable variables to data
 jsPsych.data.addProperties({
-      id: participant_id,
+      participant_id: participant_id,
+      prolific_id: prolific_id,
       name_design_r1: name_design_r1,
       name_design_r2: name_design_r2,
       window_resolution: window.innerWidth + ' x ' + window.innerHeight
@@ -217,43 +218,6 @@ var halftime = {
 // Set default count for attempts and errorattempts (used by postData function)
 var attempts = 0 , errorattempts = 0
 
-// Function to update URL send back to prolific (with completion code in URL)
-var postData = function(data){
-    $.ajax({
-        async: false, // should still work, see https://stackoverflow.com/questions/11448011/jquery-ajax-methods-async-option-deprecated-what-now
-        url: "https://arc-vlab.mpib-berlin.mpg.de/pedlr-task/submit",
-        type: 'post',
-        headers: {
-            'Access-Control-Allow-Origin': '*' // not sure if this is needed
-        },
-        data : data,
-        processData: false,
-        contentType: "application/json; charset=utf-8",
-        dataType: 'JSON',
-        success: function (output) {
-            // whatever the data try 3 times
-            attempts=attempts+1
-            if (output.code==0){SendToProlific(); return} // if all good, sending to prolific and done. return is in case prolific is off
-            wait(2000) // wait 3 secodns
-            // if didnt sent to prolific so the data was sent but other message from ARC than 0 - then try to send the data again up to 3 times
-            if (attempts<3){postData(data)} // will not work after attempt 3.
-            // then we try to send the error message itseld for 4th time attempt only
-            if (attempts<4){postData(JSON.stringify(output))}
-            // if it got here that means it tries 3 times to ARC, got non 0 code, and then sent the error to ARC and was succsfull
-            SendToProlific();
-        },// end success
-        error: function (error) { // if the sent was not successfull, i.e. not even an ARC code
-            wait(2000) // wait 3 secodns
-            errorattempts=errorattempts+1
-            if (errorattempts<3){postData(data)} //  will not work after attempt 3
-            // then we try to send the error message itsels.
-            if (errorattempts<4){postData(JSON.stringify(error))}
-            // if everything failes, then send to prolific
-            SendToProlific()
-        }// the whole process is not 100% perfect but will try maximum of 7 or 8 times which means ca 15 seconds and then send back to prolific.
-       });
-     }
-
 // Function to send data and end experiment (will be called on finish)
 function senddataNend(){
     var JSDATA = jsPsych.data.get().json()
@@ -272,6 +236,43 @@ function wait(ms){
     while(end < start + ms) {end = new Date().getTime(); }
  }
 
+// Function to update URL send back to prolific (with completion code in URL)
+var postData = function(data){
+   $.ajax({
+       async: false, // should still work, see https://stackoverflow.com/questions/11448011/jquery-ajax-methods-async-option-deprecated-what-now
+       url: "https://arc-vlab.mpib-berlin.mpg.de/pedlr-task/submit",
+       type: 'post',
+       headers: {
+           'Access-Control-Allow-Origin': '*' // not sure if this is needed
+       },
+       data : data,
+       processData: false,
+       contentType: "application/json; charset=utf-8",
+       dataType: 'JSON',
+       success: function (output) {
+           // whatever the data try 3 times
+           attempts=attempts+1
+           if (output.code==0){SendToProlific(); return} // if all good, sending to prolific and done. return is in case prolific is off
+           wait(2000) // wait 3 secodns
+           // if didnt sent to prolific so the data was sent but other message from ARC than 0 - then try to send the data again up to 3 times
+           if (attempts<3){postData(data)} // will not work after attempt 3.
+           // then we try to send the error message itseld for 4th time attempt only
+           if (attempts<4){postData(JSON.stringify(output))}
+           // if it got here that means it tries 3 times to ARC, got non 0 code, and then sent the error to ARC and was succsfull
+           SendToProlific();
+       },// end success
+       error: function (error) { // if the sent was not successfull, i.e. not even an ARC code
+           wait(2000) // wait 3 secodns
+           errorattempts=errorattempts+1
+           if (errorattempts<3){postData(data)} //  will not work after attempt 3
+           // then we try to send the error message itsels.
+           if (errorattempts<4){postData(JSON.stringify(error))}
+           // if everything failes, then send to prolific
+           SendToProlific()
+       }// the whole process is not 100% perfect but will try maximum of 7 or 8 times which means ca 15 seconds and then send back to prolific.
+      });
+    }
+
 // Function to download data locally (used only for debugging)
 function savedata(File2Save,name,jsonfy=true) {
      if (jsonfy){ var File2Save = JSON.stringify(File2Save);}
@@ -283,12 +284,12 @@ function savedata(File2Save,name,jsonfy=true) {
      }
 
 // Fill experiment timeline with parts of experiment
-//timeline.push(info_and_consent)
+timeline.push(info_and_consent)
 timeline.push(attention_check)
-//timeline.push(training)
-//timeline.push(experiment_r1)
-//timeline.push(halftime)
-//timeline.push(experiment_r2)
+timeline.push(training)
+timeline.push(experiment_r1)
+timeline.push(halftime)
+timeline.push(experiment_r2)
 
 
 // Run experiment
@@ -296,12 +297,12 @@ jsPsych.init({
   timeline: timeline,
   override_safe_mode: true,
   preload_images: stimuli,
-  //on_finish: function(){
-  //  completion_code = 'COMPLETION_PATTERN'
-  //  SendToProlific()
-  //  senddataNend()
-  // }
-  on_finish: function(){jsPsych.data.displayData()}
+  on_finish: function(){
+   completion_code = 'COMPLETION_PATTERN'
+   senddataNend()
+   SendToProlific()
+  }
+  //on_finish: function(){jsPsych.data.displayData()}
   // on_finish: function(){
   //   full_data = jsPsych.data.get().json()
   //   file_name = 'pedlr_data_'+participant_id
