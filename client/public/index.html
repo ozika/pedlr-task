@@ -52,6 +52,34 @@
 
 <script>
 
+// Function to force fullscreen mode with check variable
+var should_be_in_fullscreen = false;
+var fullscreen = {
+  type: 'fullscreen',
+  fullscreen_mode: true,
+  on_start: function () {
+    should_be_in_fullscreen = true; // once this trial starts, the participant should be in fullscreen
+  }
+};
+
+// Function to check
+var initial_check = {
+  type: 'fullscreen',
+  fullscreen_mode: true,
+  message: '<p>Please do NOT exit the fullscreen during the entire experiment! <br>' +
+    'If you exit fullscreen mode during the experiment you will be redirected to Prolific and cannot continue with the experiment. </p>',
+  on_start: function (trial) { //
+    if (!(br.name == "Chrome" || br.name == 'Firefox' || 'Safari')) { //Safari only for now
+      trial.message = not_supported;
+      completion_code = 'BROWSER_NOTSUPPORTED';
+      //location.replace("https://app.prolific.co/submissions/complete?cc="+completion_code);
+    }
+  },
+  data: { type: 'initial_browser_check' }
+};
+
+
+
 //preload stimuli files
 // Get folder contents of stimuli pictures
 var stimuli = ['stimuli/a1.png',
@@ -222,7 +250,8 @@ var attempts = 0 , errorattempts = 0
 function senddataNend(){
     var JSDATA = jsPsych.data.get().json()
     const body = {partial: false, data: JSDATA} //, structure according to ARC
-    postData(JSON.stringify(body))
+    //postData(JSON.stringify(body))
+    postData(body)
   }
 
 // Function to update URL send back to prolific (with completion code in URL)
@@ -287,6 +316,7 @@ function savedata(File2Save,name,jsonfy=true) {
 timeline.push(info_and_consent)
 timeline.push(attention_check)
 timeline.push(training)
+timeline.push(fullscreen, initial_check) // browser check + enter full screen
 //timeline.push(experiment_r1)
 timeline.push(halftime)
 //timeline.push(experiment_r2)
@@ -298,9 +328,75 @@ jsPsych.init({
   override_safe_mode: true,
   preload_images: stimuli,
   on_finish: function(){
-   completion_code = 'COMPLETION_PATTERN'
+   completion_code = 'EXPERIMENT_FINISHED'
    senddataNend()
    SendToProlific()
+  }
+  on_interaction_data_update: function (data) { //if participant exits fullscreen
+      if (data.event == 'fullscreenexit' && should_be_in_fullscreen) {
+        console.log('exited fullscreen');
+        console.log(jsPsych.getDisplayElement())
+        jsPsych.getDisplayElement().style.visibility = 'hidden'; // hide the contents of the current trial
+        jsPsych.pauseExperiment()
+        // add a div that contains a message and button to re-enter fullscreen
+        jsPsych.getDisplayElement().insertAdjacentHTML('beforebegin',
+          '<div id="message-div" style="margin: auto;top: 50%; left: 50%; margin-right: -50%; text-align: center;">' +
+          '<p>Please remain in fullscreen mode during the task.</p>' +
+          '<p>When you click the button below, you will enter fullscreen mode.</p>' +
+          '<button id="jspsych-fullscreen-btn" class="jspsych-btn">Continue</button>' +
+          '<button id="jspsych-end_everything" class="jspsych-btn">Leave task</button></div>');
+        // call the request fullscreen function when the button is clicked
+        document.querySelector('#jspsych-fullscreen-btn').addEventListener('click', function () {
+          var element = document.documentElement;
+          if (element.requestFullscreen) {
+            element.requestFullscreen();
+          } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+          } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+          } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+          }
+        });
+        document.querySelector('#jspsych-end_everything').addEventListener('click', function () {
+          completion_code = 'INTENTIONALLY_ENDED'
+          console.log(completion_code)
+          document.getElementById("message-div").innerHTML = "Experiment ended.";
+          //var data = jsPsych.data.get().localSave('csv', 'data.csv') //save data up to this point
+
+          // PREPARE DATA FOR SAVING
+          //var jsdata = jsPsych.data.get().json();
+          //const outdata = {partial: false, subid: "sub" + subject_id.toString(), data: jsdata} //, structure according to ARC
+          //postData(JSON.stringify(outdata));
+          senddataNend()
+          //location.replace("https://app.prolific.co/submissions/complete?cc="+completion_code);
+
+        });
+      }
+      if (data.event == 'fullscreenenter') {
+        console.log('entered fullscreen');
+        // when entering fullscreen, check to see if the participant is re-entering fullscreen,
+        // i.e. the 'please enter fullscreen' message is on the page
+        var msg_div = document.querySelector('#message-div');
+        if (msg_div !== null) {
+          // remove the message
+          msg_div.remove();
+          // show the contents of the current trial again
+          jsPsych.getDisplayElement().style.visibility = 'visible';
+          jsPsych.resumeExperiment()
+        }
+      }
+    },
+  on_close: function () { // send data if window is closed before end
+    var data = jsPsych.data.get().json();
+    //postData(ids_json)
+    // PREPARE DATA FOR SAVING
+    //var jsdata = jsPsych.data.get().json();
+    //const outdata = {partial: false, subid: subject_id.toString(), data: jsdata}
+    //postData(JSON.stringify(outdata));
+    completion_code = 'EXPERIMENT_CLOSED'
+    senddataNend()
+
   }
   //on_finish: function(){jsPsych.data.displayData()}
   // on_finish: function(){
