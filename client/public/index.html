@@ -18,7 +18,7 @@
   <script src="jspsych-6.2.0/plugins/jspsych-survey-multi-choice.js"></script>
 
   <!-- Source package to get browser of participant -->
-  <script src="bowser/bowser.js"></script>
+  <script src="https://unpkg.com/bowser@2.7.0/es5.js"></script>
 
   <!-- Source .json including all designs -->
   <script type="text/javascript" src="designs/designs.js" type="application/json"></script>
@@ -51,34 +51,6 @@
 </body>
 
 <script>
-
-// Function to force fullscreen mode with check variable
-var should_be_in_fullscreen = false;
-var fullscreen = {
-  type: 'fullscreen',
-  fullscreen_mode: true,
-  on_start: function () {
-    should_be_in_fullscreen = true; // once this trial starts, the participant should be in fullscreen
-  }
-};
-
-// Function to check
-var initial_check = {
-  type: 'fullscreen',
-  fullscreen_mode: true,
-  message: '<p>Please do NOT exit the fullscreen during the entire experiment! <br>' +
-    'If you exit fullscreen mode during the experiment you will be redirected to Prolific and cannot continue with the experiment. </p>',
-  on_start: function (trial) { //
-    if (!(br.name == "Chrome" || br.name == 'Firefox' || 'Safari')) { //Safari only for now
-      trial.message = not_supported;
-      completion_code = 'BROWSER_NOTSUPPORTED';
-      //location.replace("https://app.prolific.co/submissions/complete?cc="+completion_code);
-    }
-  },
-  data: { type: 'initial_browser_check' }
-};
-
-
 
 //preload stimuli files
 // Get folder contents of stimuli pictures
@@ -178,14 +150,50 @@ function getUrlVars()
 // Save prolific ID
 var prolific_id = getUrlVars()["PROLIFIC_ID"]
 
+// browser + os info
+const browser = bowser.getParser(window.navigator.userAgent);
+br = browser.getBrowser() //name + version
+os = browser.getOS() // name + version
+
+// Function to force fullscreen mode with check variable
+var should_be_in_fullscreen = false;
+var fullscreen = {
+  type: 'fullscreen',
+  fullscreen_mode: true,
+  on_start: function () {
+    should_be_in_fullscreen = true; // once this trial starts, the participant should be in fullscreen
+  }
+};
+
+// Function to check
+var initial_check = {
+  type: 'fullscreen',
+  fullscreen_mode: true,
+  message: '<p>Please do NOT exit the fullscreen during the entire experiment! <br>' +
+    'If you exit fullscreen mode during the experiment you will be redirected to Prolific and cannot continue with the experiment. </p>',
+  on_start: function (trial) { //
+    if (!(br.name == "Chrome" || br.name == 'Firefox' || 'Safari')) { //Safari only for now
+      trial.message = not_supported;
+      completion_code = 'BROWSER_NOTSUPPORTED';
+      //location.replace("https://app.prolific.co/submissions/complete?cc="+completion_code);
+    }
+  },
+  data: { type: 'initial_browser_check' }
+};
+
 // Add stable variables to data
 jsPsych.data.addProperties({
-      participant_id: participant_id,
-      prolific_id: prolific_id,
-      name_design_r1: name_design_r1,
-      name_design_r2: name_design_r2,
-      window_resolution: window.innerWidth + ' x ' + window.innerHeight
-    });
+  participant_id: participant_id,
+  prolific_id: prolific_id,
+  name_design_r1: name_design_r1,
+  name_design_r2: name_design_r2,
+  browser_name: br.name,
+  browser_version: br.version,
+  os_name: os.name,
+  os_version: os.version,
+  window_resolution: window.innerWidth + ' x ' + window.innerHeight,
+  screen_resolution: screen.width + ' x ' + screen.height
+});
 
 var timeline = []
 
@@ -315,8 +323,9 @@ function savedata(File2Save,name,jsonfy=true) {
 // Fill experiment timeline with parts of experiment
 timeline.push(info_and_consent)
 timeline.push(attention_check)
+timeline.push(fullscreen) // browser check + enter full screen
 timeline.push(training)
-timeline.push(fullscreen, initial_check) // browser check + enter full screen
+//timeline.push(fullscreen, initial_check) // browser check + enter full screen
 //timeline.push(experiment_r1)
 timeline.push(halftime)
 //timeline.push(experiment_r2)
@@ -331,8 +340,8 @@ jsPsych.init({
    completion_code = 'EXPERIMENT_FINISHED'
    senddataNend()
    SendToProlific()
-  }
-  on_interaction_data_update: function (data) { //if participant exits fullscreen
+ },
+ on_interaction_data_update: function(data) { //if participant exits fullscreen
       if (data.event == 'fullscreenexit' && should_be_in_fullscreen) {
         console.log('exited fullscreen');
         console.log(jsPsych.getDisplayElement())
@@ -387,7 +396,7 @@ jsPsych.init({
         }
       }
     },
-  on_close: function () { // send data if window is closed before end
+  on_close: function() { // send data if window is closed before end
     var data = jsPsych.data.get().json();
     //postData(ids_json)
     // PREPARE DATA FOR SAVING
