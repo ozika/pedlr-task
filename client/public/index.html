@@ -325,7 +325,6 @@ timeline.push(info_and_consent)
 timeline.push(attention_check)
 timeline.push(fullscreen) // browser check + enter full screen
 timeline.push(training)
-//timeline.push(fullscreen, initial_check) // browser check + enter full screen
 //timeline.push(experiment_r1)
 timeline.push(halftime)
 //timeline.push(experiment_r2)
@@ -339,7 +338,6 @@ jsPsych.init({
   on_finish: function(){
    completion_code = 'EXPERIMENT_FINISHED'
    senddataNend()
-   SendToProlific()
  },
  on_interaction_data_update: function(data) { //if participant exits fullscreen
       if (data.event == 'fullscreenexit' && should_be_in_fullscreen) {

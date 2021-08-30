@@ -1,3 +1,23 @@
+// ------------------------ Intro screen ----------------------
+var attention_intro = {
+    type: 'html-keyboard-response',
+    stimulus: function(){
+      var html = "<h1>Before we start the experiment, we would ask you to answer a few simple questions about the experiment.</h1>"
+      html += "<p><br></p>"
+      html += "<p>We will ask you <b>THREE</b> multiple choice questions about the experiment.<br>Each of these questions will be very easy to answer if you read the study information and completed the training.<br>Each multiple choice question will have four possible answers.<br>You can only choose one of these answers and <b>ONLY ONE</b> of these answers will be correct.</p>"
+      html += "<p>You can select your answer to each question by clicking on it.<br>Afterwards you can click the 'Continue' button to submit your answer and go to the next question.</p>"
+      html += "<p><br></p>"
+      html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue with the questions.</p>"
+      return html
+    },
+    choices: ['f', 'j'],
+    on_finish: function(data){
+      data.stimulus = 'attention_intro'
+      data.type = 'attention_intro'
+    }
+  ]
+}
+
 // ------------------------ Question 1 ------------------------
 // Question screen
 var attention_q_1 = {
@@ -29,7 +49,7 @@ var fail_q_1 = {
     var html = "<h1>Wrong answer!</h1>"
     html += "<p><br></p>"
     html += "<p>The points you might get from choosing a single option can vary between 1 and 100.</p>"
-    html += "<p>Some options will be more rewarding than others BUT you will NEVER get<br>less than 1 or more than 100 points from a single choice.</p>"
+    html += "<p>Some options will be more rewarding than others <b>BUT</b> you will <b>NEVER</b> get<br>less than 1 or more than 100 points from any choice.</p>"
     return html
   },
   choices: ["Continue"],
@@ -57,7 +77,7 @@ var attention_q_2 = {
   type: 'survey-multi-choice',
   questions: [
     {
-      prompt: "During forced choice trials: what happens if you chose the non-framed option?",
+      prompt: "You see a trial in which one option has a frame around it: what happens if you chose the non-framed option?",
       name: 'forced_wrong',
       options: [
         "a) I will get the points for the non-framed option",
@@ -81,14 +101,14 @@ var fail_q_2 = {
   stimulus: function(){
     var html = "<h1>Wrong answer!</h1>"
     html += "<p><br></p>"
-    html += "<p>Forced choices have a framed and a non-framed option and will look like this:</p>"
+    html += "<p>Choices involving a framed option will look like this:</p>"
     html += "<p><br></p>"
     html += "<img src='stimuli/a1_forced.png' style='width: 100px;'>";
     html += "<img src='stimuli/fixation.png' style='width: 100px;'>";
     html += "<img src='stimuli/a2.png' style='width: 100px;'>";
     html += "<p><br></p>"
-    html += "<p>In case you will choose the non-framed option you will NOT GET ANY POINTS.</p>"
-    html += "<p>In that case you will also NOT BE TOLD HOW MANY POINTS YOU WOULD HAVE GOTTEN for any of the choices.</p>"
+    html += "<p>In case you will choose the non-framed option you will <b>NOT GET ANY POINTS</b>.</p>"
+    html += "<p>In that case you will also <b>NOT BE TOLD HOW MANY POINTS YOU WOULD HAVE GOTTEN</b> for any of the choices.</p>"
     return html
   },
   choices: ["Continue"],
@@ -179,7 +199,9 @@ var attention_failed = {
     var sum_of_correct = jsPsych.data.get().filter({type: 'attention_check'}).select('correct')
     var sum_of_correct = sum_of_correct.sum();
     data.sum_of_correct = sum_of_correct;
-    jsPsych.data.displayData();
+    completion_code = 'FAILED_ATTENTION';
+    senddataNend()
+    //jsPsych.data.displayData();
   }
 }
 
@@ -202,9 +224,10 @@ var if_attention_failed = {
 // Full attention check:
 // Presenting question after question with in-between fail check
 // After all questions: check for overall performance
-// If overall performance is too bad (more than 2 errors): Exit experiment
+// If overall performance is too bad (more than 1 error): Exit experiment
 var attention_check = {
   timeline: [
+    attention_intro,
     attention_q_1,
     check_fail_q_1,
     attention_q_2,
