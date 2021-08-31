@@ -157,9 +157,15 @@ os = browser.getOS() // name + version
 
 // Function to force fullscreen mode with check variable
 var should_be_in_fullscreen = false;
+
 var fullscreen = {
   type: 'fullscreen',
   fullscreen_mode: true,
+  message: [
+    "<p>The experiment will switch to full screen mode when you press the button below.</p>" +
+    "<p>Please do <b>NOT</b> exit the full screen mode during the entire experiment! <br>" +
+    "If you exit full screen mode during the experiment you will be redirected to Prolific and cannot continue with the experiment. </p>"
+  ],
   on_start: function () {
     should_be_in_fullscreen = true; // once this trial starts, the participant should be in fullscreen
   }
@@ -251,6 +257,24 @@ var halftime = {
   ]
 }
 
+// Goodbye screen
+var goodbye = {
+  timeline: [
+    {
+      type: 'html-keyboard-response',
+      stimulus: function(){
+        var html = "<h1>Thank you very much!<br></h1>"
+        html += "<p>You completed the task.</p>"
+        html += "<p>After you exit this screen you will be redirected to the Prolific website.<br>This might take a moment so please <b>DON'T CLOSE</b> the window!</p>"
+        html += "<p>Thank you again for your participation!<br>We are wishing you all the best!</p>"
+        html += "<p><br><br>Press <b>[ F ]</b> or <b>[ J ]</b> to be redirected to Prolfic.</p>"
+        return html
+      },
+      choices: ['f', 'j']
+    }
+  ]
+}
+
 // Set default count for attempts and errorattempts (used by postData function)
 var attempts = 0 , errorattempts = 0
 
@@ -322,12 +346,13 @@ function savedata(File2Save,name,jsonfy=true) {
 
 // Fill experiment timeline with parts of experiment
 timeline.push(info_and_consent)
-timeline.push(attention_check)
 timeline.push(fullscreen) // browser check + enter full screen
+timeline.push(attention_check)
 timeline.push(training)
 //timeline.push(experiment_r1)
 timeline.push(halftime)
 //timeline.push(experiment_r2)
+timeline.push(goodbye)
 
 
 // Run experiment

@@ -86,7 +86,7 @@ var train_screen_points = {
       type: 'html-keyboard-response',
       stimulus: function(){
         var html = "<p>Every time you make a <b>CHOICE</b> you will be <b>REWARDED WITH POINTS</b>:</p>"
-        html += "<p>We will immediately show you how many points you got for your choice.<br>You will get <b>BETWEEN 1 AND 100 POINTS</b> for the option you selected.<br>You will <b>NEVER</b> see how many points the other option would have given you.</p>"
+        html += "<p>We will immediately show you how many points you got for your choice.<br>You will get <b>BETWEEN 0 AND 100 POINTS</b> for the option you selected.<br>You will <b>NEVER</b> see how many points the other option would have given you.</p>"
         html += "<p>The amount of points you get from the same option will <b>VARY</b>!<br>Your goal will be to find out which of the available options to chose to get the most points possible.</p>"
         html += "<p><br></p>"
         html += "<h3>The more points you will get the more pay you will receive so try to get a high score!</h3>"
