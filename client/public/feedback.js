@@ -9,7 +9,7 @@ var feedback = {
           if(jsPsych.data.get().last(1).values()[0].choice == 'n/a'){
             var html = "<p>Please respond faster</p>";
           } else {
-            var html = "<p>"+jsPsych.data.get().last(1).values()[0].outcome+"</p>";
+            var html = "<p style='text-align:center; position:relative; transform:translateY(-15%); font-size:32px'>"+jsPsych.data.get().last(1).values()[0].outcome+"</p>";
           }
         // Feedback for forced choice trials [too slow, wrong choice, outcome]
         } else if(jsPsych.data.get().last(1).values()[0].type == 'forced'){
@@ -18,7 +18,7 @@ var feedback = {
           } else if(jsPsych.data.get().last(1).values()[0].choice != jsPsych.data.get().last(1).values()[0].forced){
             var html = "<p>Please always select the framed stimulus</p>";
           } else {
-            var html = "<p>"+jsPsych.data.get().last(1).values()[0].outcome+"</p>";
+            var html = "<p style='text-align:center; position:relative; transform:translateY(-15%); font-size:32px'>"+jsPsych.data.get().last(1).values()[0].outcome+"</p>";
           }
         // Feedback for estimation trials [too slow]
         } else if(jsPsych.data.get().last(1).values()[0].type == 'estimation'){

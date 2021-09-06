@@ -166,7 +166,7 @@ var train_second_run = {
     {
       type: 'html-keyboard-response',
       stimulus: function(){
-        var html = "<p>In the real experiment the symbols for the different options will be any of these:</p>"
+        var html = "<p>In the real experiment the different options will be randomly selected from a few Japanese Hiragana syllables:</p>"
         html += "<img src='stimuli/s1.png' style='width: 100px;'>";
         html += "<img src='stimuli/s2.png' style='width: 100px;'>";
         html += "<img src='stimuli/s3.png' style='width: 100px;'>";
