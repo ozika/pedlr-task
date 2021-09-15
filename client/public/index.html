@@ -17,6 +17,9 @@
   <script src="jspsych-6.2.0/plugins/jspsych-external-html.js"></script>
   <script src="jspsych-6.2.0/plugins/jspsych-survey-multi-choice.js"></script>
 
+  <!-- Source custom plugins -->
+  <script src="multiple-slider.js"></script>
+
   <!-- Source package to get browser of participant -->
   <script src="https://unpkg.com/bowser@2.7.0/es5.js"></script>
 
@@ -33,7 +36,7 @@
   <script src="if_nodes.js"></script>
   <script src="training.js"></script>
 
-  <!-- Source attion checks -->
+  <!-- Source attention checks -->
   <script src="attention_checks.js"></script>
 
   <!-- Function to display study info and consent (including check of given consent)-->
@@ -120,7 +123,7 @@ var name_design_r1 = names_designs_r1[sample]
 var name_design_r2 = names_designs_r2[sample]
 
 // Set scaling of images and margins to adjust size of experiment (in percentage)
-var img_scale = 40
+var img_scale = 30
 
 // Create random subject string (replace with prolific ID later)
 function MakeId() {
@@ -345,14 +348,14 @@ function savedata(File2Save,name,jsonfy=true) {
      }
 
 // Fill experiment timeline with parts of experiment
-timeline.push(info_and_consent)
-timeline.push(fullscreen) // browser check + enter full screen
-timeline.push(attention_check)
+// timeline.push(info_and_consent)
+// timeline.push(fullscreen) // browser check + enter full screen
+// timeline.push(attention_check)
 timeline.push(training)
-timeline.push(experiment_r1)
-timeline.push(halftime)
-timeline.push(experiment_r2)
-timeline.push(goodbye)
+//timeline.push(experiment_r1)
+//timeline.push(halftime)
+//timeline.push(experiment_r2)
+//timeline.push(goodbye)
 
 
 // Run experiment
@@ -360,10 +363,10 @@ jsPsych.init({
   timeline: timeline,
   override_safe_mode: true,
   preload_images: stimuli,
-  on_finish: function(){
-   completion_code = 'EXPERIMENT_FINISHED'
-   senddataNend()
- },
+ //  on_finish: function(){
+ //   completion_code = 'EXPERIMENT_FINISHED'
+ //   senddataNend()
+ // },
  on_interaction_data_update: function(data) { //if participant exits fullscreen
       if (data.event == 'fullscreenexit' && should_be_in_fullscreen) {
         console.log('exited fullscreen');
@@ -429,8 +432,8 @@ jsPsych.init({
     completion_code = 'EXPERIMENT_CLOSED'
     senddataNend()
 
-  }
-  //on_finish: function(){jsPsych.data.displayData()}
+  },
+  on_finish: function(){jsPsych.data.displayData()}
   // on_finish: function(){
   //   full_data = jsPsych.data.get().json()
   //   file_name = 'pedlr_data_'+participant_id

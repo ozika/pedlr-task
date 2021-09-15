@@ -226,26 +226,54 @@ var if_attention_failed = {
   }
 }
 
+// var attention_passed = {
+//   type: 'html-button-response',
+//   stimulus: function(){
+//     var html = "<p><b>You passed the attention check!</b></p>"
+//     html += "<p>After this screen the regular task will start, beginning with a short training.</p>"
+//     html += "<p><br></p>"
+//     html += "<p>Click the 'Continue' button below to continue with the task training.</p>"
+//     return html
+//   },
+//   choices: ['Continue'],
+//   // on_finish: function(data){
+//   //   data.type = "experiment_fail";
+//   //   var sum_of_correct = jsPsych.data.get().filter({type: 'attention_check'}).select('correct')
+//   //   var sum_of_correct = sum_of_correct.sum();
+//   //   data.sum_of_correct = sum_of_correct;
+//   //   completion_code = 'FAILED_ATTENTION';
+//   //   senddataNend()
+//   //   //jsPsych.data.displayData();
+//   // }
+// }
+
 // Screen that the attention check was passed
 var attention_passed = {
-  type: 'html-button-response',
-  stimulus: function(){
+  type: 'survey-multi-choice',
+  preamble: function(){
     var html = "<p><b>You passed the attention check!</b></p>"
     html += "<p>After this screen the regular task will start, beginning with a short training.</p>"
-    html += "<p><br></p>"
     html += "<p>Click the 'Continue' button below to continue with the task training.</p>"
+    html += "<p><br></p>"
+    html += "<p><b>One last question before we start:</b></p>"
     return html
   },
-  choices: ['Continue'],
-  // on_finish: function(data){
-  //   data.type = "experiment_fail";
-  //   var sum_of_correct = jsPsych.data.get().filter({type: 'attention_check'}).select('correct')
-  //   var sum_of_correct = sum_of_correct.sum();
-  //   data.sum_of_correct = sum_of_correct;
-  //   completion_code = 'FAILED_ATTENTION';
-  //   senddataNend()
-  //   //jsPsych.data.displayData();
-  // }
+  questions: [
+    {
+      prompt: "Can you read or speak the Japanese language?",
+      name: 'hiragana',
+      options: [
+        "Yes",
+        "No"
+      ],
+      required: true
+    }
+  ],
+  on_finish: function(data){
+    data.type = 'attention_check',
+    // Put in prefix of correct answer here (Pattern framed by "/.../" and "\" before brackets because of regular expression)
+    data.hiragana = data.responses;
+  }
 }
 
 // Full attention check:
