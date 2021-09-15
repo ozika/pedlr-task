@@ -189,7 +189,7 @@
         // add some space between the sliders
         html += '<br/>';
         html += '<br/>';
-        html += '<br/>';
+        //html += '<br/>';
       }
 
       // add some space before the next button
@@ -264,7 +264,8 @@
         // save data
         var trial_data = {
           "rt": response_time,
-          "responses": JSON.stringify(question_data),
+          "response_reward": question_data.estimation_reward,
+          "response_range": question_data.estimation_range,
           "question_order": JSON.stringify(question_order)
         };
 

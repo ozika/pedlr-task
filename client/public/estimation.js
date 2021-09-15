@@ -70,7 +70,6 @@ var estimation = {
       randomize_question_order: false,
       show_value: true,
       require_movement: false,
-      trial_duration: 10000,
       slider_width: 600,
       on_finish: function(data){
         // Add constant variables
@@ -82,10 +81,12 @@ var estimation = {
         data.forced = jsPsych.timelineVariable('forced', true)
         data.stimulus_estimation = jsPsych.timelineVariable('stimulus_estimation', true)
         // Save response
-        if(data.responses != null){
-          data.estimation = data.responses
-        } else if(data.responses == null){
-          data.estimation = 'n/a'
+        if(data.response_reward != null){
+          data.estimation_reward = data.response_reward
+          data.estimation_range = data.response_range
+        } else if(data.response_reward == null){
+          data.estimation_reward = 'n/a'
+          data.estimation_range = 'n/a'
         }
       }
     }
