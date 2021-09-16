@@ -25,7 +25,7 @@ var feedback = {
           if(jsPsych.data.get().last(1).values()[0].rt > 10000){
             var html = "<p>Please respond faster</p>";
           } else {
-            var html = 'n/a'
+            var html = ''
           }
         }
         return html;
@@ -39,7 +39,7 @@ var feedback = {
         // Don't show feedback on correct estimation trials (duration = 0)
       } else if(jsPsych.data.get().last(1).values()[0].type == 'estimation' && jsPsych.data.get().last(1).values()[0].response_reward != null){
           return 0;
-        // COnstant feedback time for all corect trials
+        // Constant feedback time for all correct trials
         } else {
           return 1000;
         }

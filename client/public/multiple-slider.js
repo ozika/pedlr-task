@@ -188,7 +188,7 @@
 
         // add some space between the sliders
         html += '<br/>';
-        html += '<br/>';
+        //html += '<br/>';
         //html += '<br/>';
       }
 

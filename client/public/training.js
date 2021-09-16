@@ -129,12 +129,10 @@ var train_screen_estimation = {
     {
       type: 'html-keyboard-response',
       stimulus: function(){
-        var html = "<p>Well done!</p>"
-        html += "<p>Finally, we will sometimes ask you <b>WHAT YOU THINK THE SCORE WOULD BE</b> if you would chose a certain option.</p>"
-        html += "<p>We will show one option to you together with a slider.<br>By moving the slider you can tell us how many points you think you would get if you would choose that option."
-        html += "<br>This will look something like this:</p>"
-        html += "<img src='stimuli/training_slider.png' style='width: 400px;'>";
-        html += "<p>This is just a picture but in the examples you can <b>USE YOUR MOUSE</b> to move the slider and tell us what you think!<br>You will have to move the slider at least once to continue.<br>You can submit your choice by clicking on the 'Continue' button.</p>"
+        var html = "<p>Finally, we will sometimes ask you <b>WHAT YOU THINK THE SCORE WOULD BE</b> if you would chose a certain option.</p>"
+        html += "<p>We will show one option to you together with <b>two sliders:</b><br>1. To tell us how many points you think you would get from this option.<br>2. To tell us how much you think it might vary.</p>"
+        html += "<img src='stimuli/training_slider.png' style='width: 300px; border: 1px solid black;'>";
+        html += "<p>You can <b>USE YOUR MOUSE</b> to move the slider and tell us what you think!<br>You can submit your choice by clicking on the 'Continue' button.</p>"
         html += "<p>Let's try it out with a few examples!</p>"
         html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue with some examples.</p>"
         return html
