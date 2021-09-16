@@ -190,6 +190,7 @@ var initial_check = {
   data: { type: 'initial_browser_check' }
 };
 
+
 // Add stable variables to data
 jsPsych.data.addProperties({
   participant_id: participant_id,
@@ -349,10 +350,11 @@ function savedata(File2Save,name,jsonfy=true) {
 
 // Fill experiment timeline with parts of experiment
 // timeline.push(info_and_consent)
-// timeline.push(fullscreen) // browser check + enter full screen
-// timeline.push(attention_check)
-timeline.push(training)
-//timeline.push(experiment_r1)
+timeline.push(fullscreen) // browser check + enter full screen
+timeline.push(attention_check)
+//timeline.push(training)
+timeline.push(cursor_off)
+timeline.push(experiment_r1)
 //timeline.push(halftime)
 //timeline.push(experiment_r2)
 //timeline.push(goodbye)

@@ -37,7 +37,7 @@ var feedback = {
         } else if(jsPsych.data.get().last(1).values()[0].type == 'forced' && jsPsych.data.get().last(1).values()[0].choice != jsPsych.data.get().last(1).values()[0].forced){
           return 2000;
         // Don't show feedback on correct estimation trials (duration = 0)
-      } else if(jsPsych.data.get().last(1).values()[0].type == 'estimation' && jsPsych.data.get().last(1).values()[0].response_reward != null){
+      } else if(jsPsych.data.get().last(1).values()[0].type == 'estimation' && jsPsych.data.get().last(1).values()[0].rt < 10000){
           return 0;
         // Constant feedback time for all correct trials
         } else {
