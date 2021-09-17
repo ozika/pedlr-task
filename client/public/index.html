@@ -190,6 +190,70 @@ var initial_check = {
   data: { type: 'initial_browser_check' }
 };
 
+// Funciton to get points collected during experiment
+var get_points_experiment = function() {
+  // During training
+  // Free
+  var points_training_free = jsPsych.data.get().filterCustom(function(trial){
+    // in training all stumuli start with "a"
+    return /stimuli\/a/.test(trial.stimulus_left) &&
+    trial.type == 'free' &&
+    // only consider valid trials
+    trial.outcome != 'n/a';
+  }).select('outcome').sum();
+  // Forced
+  var points_training_forced = jsPsych.data.get().filterCustom(function(trial){
+    return /stimuli\/a/.test(trial.stimulus_left) &&
+    trial.type == 'forced' &&
+    trial.outcome != 'n/a';
+  }).select('outcome').sum();
+  // combine points during training
+  var points_training = points_training_free + points_training_forced
+
+  // Experiment
+  // Free
+  var points_experiment_free = jsPsych.data.get().filterCustom(function(trial){
+    // during experiment all stimuli start with "s"
+    return /stimuli\/s/.test(trial.stimulus_left) &&
+    trial.type == 'free' &&
+    trial.outcome != 'n/a';
+  }).select('outcome').sum();
+  // Forced
+  var points_experiment_forced = jsPsych.data.get().filterCustom(function(trial){
+    return /stimuli\/s/.test(trial.stimulus_left) &&
+    trial.type == 'forced' &&
+    trial.outcome != 'n/a';
+  }).select('outcome').sum();
+  // Combine points during experiment
+  var points_experiment = points_experiment_free + points_experiment_forced
+
+  // Combine points during training and experiment for total points
+  var points_total = points_training + points_experiment
+
+  // Check if total points are the same as points over all trials
+  // All trials
+  // Free
+  var points_check_free = jsPsych.data.get().filterCustom(function(trial){
+    return trial.type == 'free' &&
+    trial.outcome != 'n/a';
+  }).select('outcome').sum();
+  // Forced
+  var points_check_forced = jsPsych.data.get().filterCustom(function(trial){
+    return trial.type == 'forced' &&
+    trial.outcome != 'n/a';
+  }).select('outcome').sum();
+  // Combine total points
+  var points_check = points_check_free + points_check_forced
+
+  // Log points to console
+  console.log("Training: " + points_training)
+  console.log("Experiment: " + points_experiment)
+  console.log("Total: " + points_total)
+  console.log("Check total: " + points_check)
+
+  // Return points collected during experiment
+  return points_experiment
+}
 
 // Add stable variables to data
 jsPsych.data.addProperties({
@@ -267,8 +331,12 @@ var goodbye = {
     {
       type: 'html-keyboard-response',
       stimulus: function(){
+        // Get points collected during experiment
+        var points_experiment = get_points_experiment()
+
         var html = "<h1>Thank you very much!<br></h1>"
-        html += "<p>You completed the task.</p>"
+        html += "<p>You completed the task with a total score of:</p>"
+        html += "<h1>" + points_experiment + " points</h1>"
         html += "<p>After you exit this screen you will be redirected to the Prolific website.<br>This might take a moment so please <b>DON'T CLOSE</b> the window!</p>"
         html += "<p>Thank you again for your participation!<br>We are wishing you all the best!</p>"
         html += "<p><br><br>Press <b>[ F ]</b> or <b>[ J ]</b> to be redirected to Prolfic.</p>"
@@ -352,12 +420,12 @@ function savedata(File2Save,name,jsonfy=true) {
 // timeline.push(info_and_consent)
 timeline.push(fullscreen) // browser check + enter full screen
 timeline.push(attention_check)
-//timeline.push(training)
+timeline.push(training)
 timeline.push(cursor_off)
 timeline.push(experiment_r1)
 //timeline.push(halftime)
 //timeline.push(experiment_r2)
-//timeline.push(goodbye)
+timeline.push(goodbye)
 
 
 // Run experiment
