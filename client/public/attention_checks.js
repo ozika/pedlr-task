@@ -52,8 +52,8 @@ var fail_q_1 = {
   stimulus: function(){
     var html = "<h1>Wrong answer!</h1>"
     html += "<p><br></p>"
-    html += "<p>The points you might get from choosing a single option can vary between 1 and 100.</p>"
-    html += "<p>Some options will be more rewarding than others <b>BUT</b> you will <b>NEVER</b> get<br>less than 1 or more than 100 points from any choice.</p>"
+    html += "<p>The points you might get from choosing a single option can vary between 0 and 100.</p>"
+    html += "<p>Some options will be more rewarding than others <b>BUT</b> you will <b>NEVER</b> get<br>less than 0 or more than 100 points from any choice.</p>"
     return html
   },
   choices: ["Continue"],
@@ -81,13 +81,11 @@ var attention_q_2 = {
   type: 'survey-multi-choice',
   questions: [
     {
-      prompt: "<b>Question 2:</b> You see a trial in which one option has a frame around it: what happens if you chose the non-framed option?",
-      name: 'forced_wrong',
+      prompt: "<b>Question 2:</b> Please complete the following sentence: Every time I choose a certain option...",
+      name: 'points_vary',
       options: [
-        "a) I will get the points for the non-framed option",
-        "b) I will see how many points I would have gotten, but I won't get them",
-        "c) I will not get any points and also won't see how many points I would have gotten",
-        "d) I will get the points for the framed option"
+        "a) ...I will get the same amount of points.",
+        "b) ...the points I get will vary."
       ],
       required: true
     }
@@ -95,7 +93,7 @@ var attention_q_2 = {
   on_finish: function(data){
     data.type = 'attention_check',
     // Put in prefix of correct answer here ("/.../" around and "\" before brackets because of regular expression)
-    data.correct = /c\)/.test(data.responses);
+    data.correct = /b\)/.test(data.responses);
   }
 }
 
@@ -105,14 +103,9 @@ var fail_q_2 = {
   stimulus: function(){
     var html = "<h1>Wrong answer!</h1>"
     html += "<p><br></p>"
-    html += "<p>Choices involving a framed option will look like this:</p>"
-    html += "<p><br></p>"
-    html += "<img src='stimuli/a1_forced.png' style='width: 100px;'>";
-    html += "<img src='stimuli/fixation.png' style='width: 100px;'>";
-    html += "<img src='stimuli/a2.png' style='width: 100px;'>";
-    html += "<p><br></p>"
-    html += "<p>In case you will choose the non-framed option you will <b>NOT GET ANY POINTS</b>.</p>"
-    html += "<p>In that case you will also <b>NOT BE TOLD HOW MANY POINTS YOU WOULD HAVE GOTTEN</b> for any of the choices.</p>"
+    html += "<p>You will not get the exact same amount of points every time you choose a certain option.</p>"
+    html += "<p>The points will very. For example, if you choose option A in one of the questions you might get 26 points. But the next time you choose it you might get 34 points.</p>"
+    html += "<p>Remember that on average one of the two presented options will always give more points than the other option!</p>"
     return html
   },
   choices: ["Continue"],
@@ -139,13 +132,11 @@ var attention_q_3 = {
   type: 'survey-multi-choice',
   questions: [
     {
-      prompt: "<b>Question 3:</b> Placeholder question. Just select a)",
-      name: 'another',
+      prompt: "<b>Question 3:</b> In a special type of question called 'Guided choices' one of the two options will be highlighted. What will you have to do when you see a highlighted option?",
+      name: 'guided_todo',
       options: [
-        "a) Neuroscience",
-        "b) is",
-        "c) mediocre",
-        "d) - The Great Gigi"
+        "a) I will have to choose the highlighted option",
+        "b) I will have to choose the non-highlighted option"
       ],
       required: true
     }
@@ -163,7 +154,7 @@ var fail_q_3 = {
   stimulus: function(){
     var html = "<h1>Wrong answer!</h1>"
     html += "<p><br></p>"
-    html += "<p>Wait... what? Can't you follow simple directions?!</p>"
+    html += "<p>During so-called 'Guided choices' where one option is highlighted you will need to <b>choose the highlighted option</b>. Otherwise you will not get any points.</p>"
     return html
   },
   choices: ["Continue"],
@@ -185,15 +176,64 @@ var check_fail_q_3 = {
   }
 }
 
+// ------------------------ Question 4 ------------------------
+var attention_q_4 = {
+  type: 'survey-multi-choice',
+  questions: [
+    {
+      prompt: "<b>Question 4:</b> In another special type of question called 'Estimation' we will show only a single option to you. There are no correct of false answers during these questions but instead we ask you to estimate something. What will you have to estimate during these questions?",
+      name: 'estimate_todo',
+      options: [
+        "a) How often this option was already presented",
+        "b) How many points I would get if I would choose this option"
+      ],
+      required: true
+    }
+  ],
+  on_finish: function(data){
+    data.type = 'attention_check',
+    // Put in prefix of correct answer here (Pattern framed by "/.../" and "\" before brackets because of regular expression)
+    data.correct = /b\)/.test(data.responses);
+  }
+}
+
+// Screen to show in case of wrong answer
+var fail_q_4 = {
+  type: 'html-button-response',
+  stimulus: function(){
+    var html = "<h1>Wrong answer!</h1>"
+    html += "<p><br></p>"
+    html += "<p>During so-called 'Estimations' you will have to estimate how many points you might get when you would choose the presented option in another question.</p>"
+    return html
+  },
+  choices: ["Continue"],
+  on_finish: function(data){
+    data.type = "attention_fail"
+  }
+}
+
+// Node to check if question was answered wrongly (and display fail screen in case)
+var check_fail_q_4 = {
+  timeline: [fail_q_4],
+  conditional_function: function(){
+    var data = jsPsych.data.get().last(1).values()[0]
+    if(data.correct){
+      return false;
+    } else {
+      return true;
+    }
+  }
+}
+
 
 // ------------------------  Performance for complete attention-check ------------------------
 
 // Screen presented to person if attention check is failed
 // Will also send participants back to Prolific with a fail code
 var attention_failed = {
-  type: 'html-keyboard-response',
-  stimulus: 'You failed the attention check. You will be redirected to Prolific shortly.',
-  trial_duration: 3000,
+  type: 'html-button-response',
+  stimulus: 'You failed the attention check. You will be redirected to Prolific shortly. This might take a few moments.',
+  trial_duration: 5000,
   // on_finish: function(data){
   //   completion_code = 'FAILED_ATTENTION_CHECK',
   //   SendToProlific(),
@@ -218,7 +258,7 @@ var if_attention_failed = {
     var data = jsPsych.data.get().filter({type: 'attention_check'}).select('correct')
     var sum_of_correct = data.sum();
     // Fail threshold: (Minimum of correct answers)
-    if(sum_of_correct < 2){
+    if(sum_of_correct < 3){
       return true;
     } else {
       return false;
@@ -289,6 +329,8 @@ var attention_check = {
     check_fail_q_2,
     attention_q_3,
     check_fail_q_3,
+    attention_q_4,
+    check_fail_q_4,
     if_attention_failed,
     attention_passed
   ]
