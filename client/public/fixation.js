@@ -32,6 +32,7 @@ var fixation = {
         data.choice = 'n/a'
         data.outcome = 'n/a'
         data.estimation = 'n/a'
+        data.ts_finish = performance.now()
       }
     }
   ]

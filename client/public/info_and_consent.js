@@ -27,5 +27,6 @@ var info_and_consent = {
     data.os_name = bowser.osname,
     data.os_version = bowser.osversion,
     data.screen_resolution = screen.width + ' x ' + screen.height
+    data.ts_finish = performance.now()
   }
 }

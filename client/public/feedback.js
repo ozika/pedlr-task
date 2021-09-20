@@ -56,6 +56,7 @@ var feedback = {
         data.choice = 'n/a'
         data.outcome = 'n/a'
         data.estimation = 'n/a'
+        data.ts_finish = performance.now()
         if(jsPsych.timelineVariable('type', true) == 'free'){
           data.type = 'feedback_free'
         } else if(jsPsych.timelineVariable('type', true) == 'forced'){

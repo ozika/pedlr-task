@@ -1,16 +1,31 @@
-// Functions to hide and show cursor (important for rating trials)
-var cursor_off = {
-    type: 'call-function',
-    func: function() {
-        document.body.style.cursor= "none";
-    }
-}
+// Functions to show cursor (important for rating trials)
 var cursor_on = {
     type: 'call-function',
+    data: {
+      type: 'cursor_on'
+    },
     func: function() {
         document.body.style.cursor= "auto";
+    },
+    on_finish: function(data){
+      data.ts_finish = performance.now()
     }
 }
+
+// Functions to hide cursor (important for rating trials)
+var cursor_off = {
+    type: 'call-function',
+    data: {
+      type: 'cursor_off'
+    },
+    func: function() {
+        document.body.style.cursor= "none";
+    },
+    on_finish: function(data){
+      data.ts_finish = performance.now()
+    }
+}
+
 
 // If nodes to check the type of trial from the loaded pattern and then display the correct trial type
 // If node: Free choice

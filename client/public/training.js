@@ -51,6 +51,7 @@ var train_screen_greet = {
       on_finish: function(data){
         data.stimulus = 'train_screen_greet'
         data.type = 'train_screen_greet'
+        data.ts_finish = performance.now()
       }
     }
   ]
@@ -60,6 +61,9 @@ var train_screen_free = {
   timeline: [
     {
       type: 'html-keyboard-response',
+      data: {
+        type: 'train_screen_free'
+      },
       stimulus: function(){
         var html = "<p>During the task, you will have to chose between <b>TWO AVAILABLE OPTIONS</b> which are <b>SEPARATED BY A CROSS</b>.<br>There are <b>THREE OPTIONS OVERALL</b>, but you will always be asked to chose between two at the time.<br>In this training the three options will be represented by the letters A, B, and C.<br>Later in the <b>REAL EXPERIMENT</b> the options will be represented by <b>DIFFERENT SYMBOLS</b>!</p>"
         html += "<p>For this training it will look similar to what you see below:</p>"
@@ -75,7 +79,10 @@ var train_screen_free = {
         html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue.</p>"
         return html
       },
-      choices: ['f', 'j']
+      choices: ['f', 'j'],
+      on_finish: function(data){
+        data.ts_finish = performance.now()
+      }
     }
   ]
 }
@@ -84,6 +91,9 @@ var train_screen_points = {
   timeline: [
     {
       type: 'html-keyboard-response',
+      data: {
+        type: 'train_screen_points'
+      },
       stimulus: function(){
         var html = "<p>Every time you make a <b>CHOICE</b> you will be <b>REWARDED WITH POINTS</b>:</p>"
         html += "<p>We will immediately show you how many points you got for your choice.<br>You will get <b>BETWEEN 0 AND 100 POINTS</b> for the option you selected.<br>You will <b>NEVER</b> see how many points the other option would have given you.</p>"
@@ -95,7 +105,10 @@ var train_screen_points = {
         html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue and play through some examples.</p>"
         return html
       },
-      choices: ['f', 'j']
+      choices: ['f', 'j'],
+      on_finish: function(data){
+        data.ts_finish = performance.now()
+      }
     }
   ]
 }
@@ -104,6 +117,9 @@ var train_screen_forced = {
   timeline: [
     {
       type: 'html-keyboard-response',
+      data: {
+        type: 'train_screen_forced'
+      },
       stimulus: function(){
         var html = "<p>Good job! What you just did will be the main part of the task.</p>"
         html += "<p>However, sometimes you will encounter a <b>FRAME</b> around an option:</p>"
@@ -119,7 +135,10 @@ var train_screen_forced = {
         html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue any play through some examples.</p>"
         return html
       },
-      choices: ['f', 'j']
+      choices: ['f', 'j'],
+      on_finish: function(data){
+        data.ts_finish = performance.now()
+      }
     }
   ]
 }
@@ -128,6 +147,9 @@ var train_screen_estimation = {
   timeline: [
     {
       type: 'html-keyboard-response',
+      data: {
+        type: 'train_screen_estimation'
+      },
       stimulus: function(){
         var html = "<p>Finally, we will sometimes ask you <b>WHAT YOU THINK THE SCORE WOULD BE</b> if you would chose a certain option.</p>"
         html += "<p>We will show one option to you together with <b>two sliders:</b><br>1. To tell us how many points you think you would get from this option.<br>2. To tell us how much you think it might vary.</p>"
@@ -137,7 +159,10 @@ var train_screen_estimation = {
         html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue with some examples.</p>"
         return html
       },
-      choices: ['f', 'j']
+      choices: ['f', 'j'],
+      on_finish: function(data){
+        data.ts_finish = performance.now()
+      }
     }
   ]
 }
@@ -146,15 +171,22 @@ var train_screen_break = {
   timeline: [
     {
       type: 'html-keyboard-response',
+      data: {
+        type: 'train_screen_break'
+      },
       stimulus: function(){
         var html = "<p>From time to time you will get the option to <b>TAKE A SHORT BREAK</b>.<br>You will recognize these breaks by this symbol and a text telling you about the break:</p>"
         html += "<img src='stimuli/break.png'; style='width: " + 300/100 * img_scale+"px'>"
         html += "<p>Feel free to rest your hands and eyes during these breaks.<br>You can continue with the task whenever you are ready by pressing <b>[ F ]</b> or <b>[ J ]</b>.</p>"
+        html += "<p>During these breaks a countdown of 2 minutes will appear after which the experiment will continue automatically. You don't need to wait the full 2 minutes. Just continue whenever you feel ready.</p>"
         html += "<p><br></p>"
         html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue.</p>"
         return html
       },
-      choices: ['f', 'j']
+      choices: ['f', 'j'],
+      on_finish: function(data){
+        data.ts_finish = performance.now()
+      }
     }
   ]
 }
@@ -163,6 +195,9 @@ var train_second_run = {
   timeline: [
     {
       type: 'html-keyboard-response',
+      data: {
+        type: 'train_second_run'
+      },
       stimulus: function(){
         var html = "<p>In the real experiment the different options will be randomly selected from a few Japanese Hiragana syllables:</p>"
         html += "<img src='stimuli/s1.png' style='width: 100px;'>";
@@ -179,7 +214,10 @@ var train_second_run = {
         html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue.</p>"
         return html
       },
-      choices: ['f', 'j']
+      choices: ['f', 'j'],
+      on_finish: function(data){
+        data.ts_finish = performance.now()
+      }
     }
   ]
 }
@@ -188,6 +226,9 @@ var train_screen_last = {
   timeline: [
     {
       type: 'html-keyboard-response',
+      data: {
+        type: 'train_screen_last'
+      },
       stimulus: function(){
         var html = "<h3>You finished the training!</h3>"
         html += "<p><br></p>"
@@ -200,7 +241,10 @@ var train_screen_last = {
         html += "<p>Press <b>[ J ]</b> to <b>CONTINUE</b> with the task</p>"
         return html
       },
-      choices: ['f', 'j']
+      choices: ['f', 'j'],
+      on_finish: function(data){
+        data.ts_finish = performance.now()
+      }
     }
   ]
 }
@@ -210,6 +254,9 @@ var train_screen_repeat_end = {
   timeline: [
     {
       type: 'html-keyboard-response',
+      data: {
+        type: 'train_screen_repeat_end'
+      },
       stimulus: function(){
         var html = "<h3>You finished the training!</h3>"
         html += "<p><br></p>"
@@ -221,7 +268,10 @@ var train_screen_repeat_end = {
         html += "<p><br><br>Press <b>[ F ]</b> or <b>[ J ]</b> to <b>CONTINUE</b> with the task</p>"
         return html
       },
-      choices: ['f', 'j']
+      choices: ['f', 'j'],
+      on_finish: function(data){
+        data.ts_finish = performance.now()
+      }
     }
   ]
 }

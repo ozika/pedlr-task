@@ -19,6 +19,7 @@ var attention_intro = {
     on_finish: function(data){
       data.stimulus = 'attention_intro'
       data.type = 'attention_intro'
+      data.ts_finish = performance.now()
     }
 }
 
@@ -41,6 +42,7 @@ var attention_q_1 = {
   ],
   on_finish: function(data){
     data.type = 'attention_check',
+    data.ts_finish = performance.now()
     // Put in prefix of correct answer here ("/.../" around and "\" before brackets because of regular expression)
     data.correct = /c\)/.test(data.responses) // returns true or false
   }
@@ -59,6 +61,7 @@ var fail_q_1 = {
   choices: ["Continue"],
   on_finish: function(data){
     data.type = "attention_fail"
+    data.ts_finish = performance.now()
   }
 }
 
@@ -94,6 +97,7 @@ var attention_q_2 = {
     data.type = 'attention_check',
     // Put in prefix of correct answer here ("/.../" around and "\" before brackets because of regular expression)
     data.correct = /b\)/.test(data.responses);
+    data.ts_finish = performance.now()
   }
 }
 
@@ -111,6 +115,7 @@ var fail_q_2 = {
   choices: ["Continue"],
   on_finish: function(data){
     data.type = "attention_fail"
+    data.ts_finish = performance.now()
   }
 }
 
@@ -145,6 +150,7 @@ var attention_q_3 = {
     data.type = 'attention_check',
     // Put in prefix of correct answer here (Pattern framed by "/.../" and "\" before brackets because of regular expression)
     data.correct = /a\)/.test(data.responses);
+    data.ts_finish = performance.now()
   }
 }
 
@@ -160,6 +166,7 @@ var fail_q_3 = {
   choices: ["Continue"],
   on_finish: function(data){
     data.type = "attention_fail"
+    data.ts_finish = performance.now()
   }
 }
 
@@ -194,6 +201,7 @@ var attention_q_4 = {
     data.type = 'attention_check',
     // Put in prefix of correct answer here (Pattern framed by "/.../" and "\" before brackets because of regular expression)
     data.correct = /b\)/.test(data.responses);
+    data.ts_finish = performance.now()
   }
 }
 
@@ -209,6 +217,7 @@ var fail_q_4 = {
   choices: ["Continue"],
   on_finish: function(data){
     data.type = "attention_fail"
+    data.ts_finish = performance.now()
   }
 }
 
@@ -232,6 +241,9 @@ var check_fail_q_4 = {
 // Will also send participants back to Prolific with a fail code
 var attention_failed = {
   type: 'html-button-response',
+  data: {
+    type: 'attention_check_failed'
+  },
   stimulus: 'You failed the attention check. You will be redirected to Prolific shortly. This might take a few moments.',
   trial_duration: 5000,
   // on_finish: function(data){
@@ -240,7 +252,7 @@ var attention_failed = {
   //   senddataNend()
   // }
   on_finish: function(data){
-    data.type = "experiment_fail";
+    data.ts_finish = performance.now()
     var sum_of_correct = jsPsych.data.get().filter({type: 'attention_check'}).select('correct')
     var sum_of_correct = sum_of_correct.sum();
     data.sum_of_correct = sum_of_correct;
@@ -266,30 +278,12 @@ var if_attention_failed = {
   }
 }
 
-// var attention_passed = {
-//   type: 'html-button-response',
-//   stimulus: function(){
-//     var html = "<p><b>You passed the attention check!</b></p>"
-//     html += "<p>After this screen the regular task will start, beginning with a short training.</p>"
-//     html += "<p><br></p>"
-//     html += "<p>Click the 'Continue' button below to continue with the task training.</p>"
-//     return html
-//   },
-//   choices: ['Continue'],
-//   // on_finish: function(data){
-//   //   data.type = "experiment_fail";
-//   //   var sum_of_correct = jsPsych.data.get().filter({type: 'attention_check'}).select('correct')
-//   //   var sum_of_correct = sum_of_correct.sum();
-//   //   data.sum_of_correct = sum_of_correct;
-//   //   completion_code = 'FAILED_ATTENTION';
-//   //   senddataNend()
-//   //   //jsPsych.data.displayData();
-//   // }
-// }
-
 // Screen that the attention check was passed
 var attention_passed = {
   type: 'survey-multi-choice',
+  data: {
+    type: 'hiragana'
+  },
   preamble: function(){
     var html = "<p><b>You passed the attention check!</b></p>"
     html += "<p>After this screen the regular task will start, beginning with a short training.</p>"
@@ -310,9 +304,9 @@ var attention_passed = {
     }
   ],
   on_finish: function(data){
-    data.type = 'attention_check',
     // Put in prefix of correct answer here (Pattern framed by "/.../" and "\" before brackets because of regular expression)
     data.hiragana = data.responses;
+    data.ts_finish = performance.now()
   }
 }
 
