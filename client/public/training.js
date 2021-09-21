@@ -154,8 +154,9 @@ var train_screen_estimation = {
         var html = "<p>Finally, we will sometimes ask you <b>WHAT YOU THINK THE SCORE WOULD BE</b> if you would chose a certain option.</p>"
         html += "<p>We will show one option to you together with <b>two sliders:</b><br>1. To tell us how many points you think you would get from this option.<br>2. To tell us how much you think it might vary.</p>"
         html += "<img src='stimuli/training_slider.png' style='width: 300px; border: 1px solid black;'>";
-        html += "<p>You can <b>USE YOUR MOUSE</b> to move the slider and tell us what you think!<br>You can submit your choice by clicking on the 'Continue' button.</p>"
-        html += "<p>Let's try it out with a few examples!</p>"
+        html += "<p>You can <b>USE YOUR MOUSE</b> to move the sliders.</p>"
+        html += "<p>For both sliders we are asking for a <b>rough estimate</b>, so don't be too concerned about a few points in accuracy. If we think you are taking too long we will let you know.</p>"
+        html += "<p>Please remember that there are <b>no right or wrong answers</b> and you <b>CANNOT EARN ANY POINTS</b> with your estimation! We still ask you to be as accurate as possible. Let's try it out with a few examples!</p>"
         html += "<p>Please press <b>[ F ]</b> or <b>[ J ]</b> on your keyboard to continue with some examples.</p>"
         return html
       },

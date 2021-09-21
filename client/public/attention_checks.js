@@ -6,9 +6,9 @@ var attention_intro = {
       var html = "<h1>Before we start the experiment</h1>"
       html += "<p>we ask you to answer a <b>FEW SIMPLE QUESTIONS</b> about the experiment.</p>"
       html += "<p><br></p>"
-      html += "<p>We will ask you <b>THREE</b> multiple choice questions about the experiment.<br>Each of these questions will be very easy to answer if you read the study information.</p>"
+      html += "<p>We will ask you <b>FOUR</b> multiple choice questions about the experiment.<br>Each of these questions will be very easy to answer if you read the study information.</p>"
       html += "<p><br></p>"
-      html += "<p>Each multiple choice question will have four possible answers.<br>You can only choose one of these answers and <b>ONLY ONE</b> of these answers will be correct.</p>"
+      html += "<p>Out of the possible answers for each question <b>ONLY ONE</b> will be correct.</p>"
       html += "<p><br></p>"
       html += "<p>You can select your answer to each question by clicking on it.<br>Afterwards you can click the 'Continue' button to submit your answer and go to the next question.<br>We ask you to answer <b>AT LEAST TWO</b> of the questions correctly to continue with the experiment</p>"
       html += "<p><br></p>"
@@ -188,7 +188,7 @@ var attention_q_4 = {
   type: 'survey-multi-choice',
   questions: [
     {
-      prompt: "<b>Question 4:</b> In another special type of question called 'Estimation' we will show only a single option to you. There are no correct of false answers during these questions but instead we ask you to estimate something. What will you have to estimate during these questions?",
+      prompt: "<b>Question 4:</b> In another special type of question called 'Estimation' we will show only a single option to you. There are no correct or false answers during these questions but instead we ask you to estimate something. What will you have to estimate during these questions?",
       name: 'estimate_todo',
       options: [
         "a) How often this option was already presented",
