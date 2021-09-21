@@ -290,18 +290,18 @@ var timeline = []
 var experiment_r1 = {
   timeline: [if_free, if_forced, if_estimation, if_break],
   // Get timeline from design
-  // timeline_variables: design_r1
+  timeline_variables: design_r1
   // Example timeline for easy task testing (6 examples with break in between)
-  timeline_variables: [
-    // {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
-    // {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
-    {type: 'estimation', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'stimuli/s1.png'},
-    {type: 'break', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'n/a'},
-    // {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
-    // {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
-    {type: 'estimation', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'stimuli/s1.png'},
-    {type: 'break', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'n/a'}
-  ]
+  // timeline_variables: [
+  //   {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
+  //   {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
+  //   {type: 'estimation', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'stimuli/s1.png'},
+  //   {type: 'break', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'n/a'},
+  //   {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
+  //   {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
+  //   {type: 'estimation', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'stimuli/s1.png'},
+  //   {type: 'break', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'n/a'}
+  // ]
 }
 
 // Experiment run 2 procedure
@@ -443,7 +443,7 @@ var postData = function(data){
            SendToProlific();
        },// end success
        error: function (error) { // if the sent was not successfull, i.e. not even an ARC code
-           wait(2000) // wait 3 secodns
+           wait(2000) // wait 3 seconds
            errorattempts=errorattempts+1
            if (errorattempts<3){postData(data)} //  will not work after attempt 3
            // then we try to send the error message itsels.
@@ -464,6 +464,7 @@ function savedata(File2Save,name,jsonfy=true) {
      a.click();
      }
 
+// ----------------------- Experiment timeline -----------------------
 
 // Fill experiment timeline with parts of experiment
 // Info and consent page
@@ -493,10 +494,10 @@ jsPsych.init({
   timeline: timeline,
   override_safe_mode: true,
   preload_images: stimuli,
- //  on_finish: function(){
- //   completion_code = 'EXPERIMENT_FINISHED'
- //   senddataNend()
- // },
+  on_finish: function(){
+   completion_code = 'EXPERIMENT_FINISHED'
+   senddataNend()
+ },
  on_interaction_data_update: function(data) { //if participant exits fullscreen
       if (data.event == 'fullscreenexit' && should_be_in_fullscreen) {
         console.log('exited fullscreen');
@@ -563,7 +564,7 @@ jsPsych.init({
     senddataNend()
 
   },
-  on_finish: function(){jsPsych.data.displayData()}
+  //on_finish: function(){jsPsych.data.displayData()}
   // on_finish: function(){
   //   full_data = jsPsych.data.get().json()
   //   file_name = 'pedlr_data_'+participant_id
