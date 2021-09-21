@@ -4622,21 +4622,5 @@
     "outcome_right": 53,
     "forced": "left",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   }
 ]
