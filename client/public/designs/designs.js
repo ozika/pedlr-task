@@ -4622,22 +4622,6 @@ var design_01_run_1 = [
     "outcome_right": "NA",
     "forced": "NA",
     "stimulus_estimation": "stimuli/s2.png"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   }
 ]
 
@@ -13844,22 +13828,6 @@ var design_02_run_1 = [
     "outcome_right": "NA",
     "forced": "NA",
     "stimulus_estimation": "stimuli/s1.png"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   }
 ]
 
@@ -23114,22 +23082,6 @@ var design_03_run_1 = [
     "outcome_right": 53,
     "forced": "left",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   }
 ]
 
@@ -32286,22 +32238,6 @@ var design_04_run_1 = [
     "stimulus_right": "stimuli/s2.png",
     "outcome_left": 45,
     "outcome_right": 58,
-    "forced": "NA",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
     "forced": "NA",
     "stimulus_estimation": "NA"
   }
@@ -41558,22 +41494,6 @@ var design_05_run_1 = [
     "outcome_right": 33,
     "forced": "NA",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   }
 ]
 
@@ -50828,22 +50748,6 @@ var design_06_run_1 = [
     "outcome_right": 36,
     "forced": "NA",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   }
 ]
 
@@ -60050,22 +59954,6 @@ var design_07_run_1 = [
     "outcome_right": 25,
     "forced": "NA",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   }
 ]
 
@@ -69270,22 +69158,6 @@ var design_08_run_1 = [
     "stimulus_right": "stimuli/s6.png",
     "outcome_left": 72,
     "outcome_right": 39,
-    "forced": "NA",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
     "forced": "NA",
     "stimulus_estimation": "NA"
   }
@@ -78542,22 +78414,6 @@ var design_09_run_1 = [
     "outcome_right": "NA",
     "forced": "NA",
     "stimulus_estimation": "stimuli/s5.png"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   }
 ]
 
@@ -87762,22 +87618,6 @@ var design_10_run_1 = [
     "stimulus_right": "stimuli/s6.png",
     "outcome_left": 19,
     "outcome_right": 63,
-    "forced": "NA",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
     "forced": "NA",
     "stimulus_estimation": "NA"
   }
@@ -97034,22 +96874,6 @@ var design_11_run_1 = [
     "outcome_right": 37,
     "forced": "NA",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   }
 ]
 
@@ -106304,22 +106128,6 @@ var design_12_run_1 = [
     "outcome_right": 60,
     "forced": "NA",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   }
 ]
 
@@ -115476,22 +115284,6 @@ var design_13_run_1 = [
     "stimulus_right": "stimuli/s4.png",
     "outcome_left": 35,
     "outcome_right": 49,
-    "forced": "NA",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
     "forced": "NA",
     "stimulus_estimation": "NA"
   }
@@ -124700,22 +124492,6 @@ var design_14_run_1 = [
     "outcome_right": 66,
     "forced": "NA",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   }
 ]
 
@@ -133920,22 +133696,6 @@ var design_15_run_1 = [
     "stimulus_right": "stimuli/s5.png",
     "outcome_left": 65,
     "outcome_right": 37,
-    "forced": "NA",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
     "forced": "NA",
     "stimulus_estimation": "NA"
   }
@@ -143192,22 +142952,6 @@ var design_16_run_1 = [
     "outcome_right": "NA",
     "forced": "NA",
     "stimulus_estimation": "stimuli/s3.png"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   }
 ]
 
@@ -152412,22 +152156,6 @@ var design_17_run_1 = [
     "stimulus_right": "stimuli/s2.png",
     "outcome_left": 73,
     "outcome_right": 54,
-    "forced": "NA",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
     "forced": "NA",
     "stimulus_estimation": "NA"
   }
@@ -161684,22 +161412,6 @@ var design_18_run_1 = [
     "outcome_right": 44,
     "forced": "NA",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   }
 ]
 
@@ -170952,22 +170664,6 @@ var design_19_run_1 = [
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 30,
     "outcome_right": 60,
-    "forced": "NA",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
     "forced": "NA",
     "stimulus_estimation": "NA"
   }
@@ -180223,22 +179919,6 @@ var design_20_run_1 = [
     "outcome_left": 33,
     "outcome_right": 67,
     "forced": "right",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 1,
-    "block_n": 2,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "break",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
     "stimulus_estimation": "NA"
   }
 ]

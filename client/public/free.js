@@ -25,6 +25,11 @@ var free = {
         data.stimulus_estimation = jsPsych.timelineVariable('stimulus_estimation', true)
         data.estimation = 'n/a'
         data.ts_finish = performance.now()
+        data.comp_number = jsPsych.timelineVariable('comp_number', true)
+        data.task_version = jsPsych.timelineVariable('task_version', true)
+        data.block_n = jsPsych.timelineVariable('block_n', true)
+        data.is_rare = jsPsych.timelineVariable('is_rare', true)
+        data.bad_forced = jsPsych.timelineVariable('bad_forced', true)
         // Add choice data
         if(data.key_press == 70){
           data.choice = 'left'

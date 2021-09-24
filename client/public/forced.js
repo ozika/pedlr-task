@@ -13,11 +13,6 @@ var forced = {
       trial_duration: 3000,
       response_ends_trial: true,
       choices: ['f', 'j'],
-      // Record presented stimuli
-      data: {
-        stimulus_left: 'A',
-        stimulus_right: 'B'
-      },
       // Record pressed button and associated reward
       on_finish: function(data){
         // Add constant variables
@@ -30,6 +25,11 @@ var forced = {
         data.stimulus_estimation = jsPsych.timelineVariable('stimulus_estimation', true)
         data.estimation = 'n/a'
         data.ts_finish = performance.now()
+        data.comp_number = jsPsych.timelineVariable('comp_number', true)
+        data.task_version = jsPsych.timelineVariable('task_version', true)
+        data.block_n = jsPsych.timelineVariable('block_n', true)
+        data.is_rare = jsPsych.timelineVariable('is_rare', true)
+        data.bad_forced = jsPsych.timelineVariable('bad_forced', true)
         // Check pressed button
         if(data.key_press == 70){
           data.choice = 'left'
