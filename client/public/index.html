@@ -156,6 +156,11 @@ function getUrlVars()
 }
 // Save prolific ID
 var prolific_id = getUrlVars()["PROLIFIC_ID"]
+console.log(prolific_id)
+if (prolific_id == null){
+  prolific_id = 'n/a'
+  console.log(prolific_id)
+}
 
 // browser + os info
 const browser = bowser.getParser(window.navigator.userAgent);
