@@ -141,21 +141,26 @@ function MakeId() {
 }
 var participant_id = MakeId()
 
-// Function to get query variables from URL (e.g. prolific id); saves all query variables into vars
-function getUrlVars()
-{
-    var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++)
-    {
-        hash = hashes[i].split('=');
-        vars.push(hash[0]);
-        vars[hash[0]] = hash[1];
-    }
-    return vars;
-}
+// // Function to get query variables from URL (e.g. prolific id); saves all query variables into vars
+// function getUrlVars()
+// {
+//     var vars = [], hash;
+//     var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+//     for(var i = 0; i < hashes.length; i++)
+//     {
+//         hash = hashes[i].split('=');
+//         vars.push(hash[0]);
+//         vars[hash[0]] = hash[1];
+//     }
+//     return vars;
+// }
+
+
+
+
 // Save prolific ID
-var prolific_id = getUrlVars()["PROLIFIC_PID"]
+//var prolific_id = getUrlVars()["PROLIFIC_PID"]
+var prolific_id = jsPsych.data.getURLVariable('PROLIFIC_PID');
 console.log(prolific_id)
 if (prolific_id == null){
   prolific_id = 'n/a'
@@ -163,7 +168,8 @@ if (prolific_id == null){
 console.log(prolific_id)
 
 // Save study ID
-var study_id = getUrlVars()["STUDY_ID"]
+//var study_id = getUrlVars()["STUDY_ID"]
+var study_id = jsPsych.data.getURLVariable('STUDY_ID');
 console.log(study_id)
 if (study_id == null){
   study_id = 'n/a'
@@ -519,6 +525,8 @@ jsPsych.init({
         console.log(jsPsych.getDisplayElement())
         jsPsych.getDisplayElement().style.visibility = 'hidden'; // hide the contents of the current trial
         jsPsych.pauseExperiment()
+        // show cursor for button press
+        document.body.style.cursor= "auto";
         // add a div that contains a message and button to re-enter fullscreen
         jsPsych.getDisplayElement().insertAdjacentHTML('beforebegin',
           '<div id="message-div" style="margin: auto;top: 50%; left: 50%; margin-right: -50%; text-align: center;">' +
@@ -562,6 +570,8 @@ jsPsych.init({
         if (msg_div !== null) {
           // remove the message
           msg_div.remove();
+          // Hide cursor again
+          document.body.style.cursor= "none";
           // show the contents of the current trial again
           jsPsych.getDisplayElement().style.visibility = 'visible';
           jsPsych.resumeExperiment()
