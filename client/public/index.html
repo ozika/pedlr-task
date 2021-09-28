@@ -155,11 +155,15 @@ function getUrlVars()
     return vars;
 }
 // Save prolific ID
-var prolific_id = getUrlVars()["PROLIFIC_ID"]
-console.log(prolific_id)
+var prolific_id = getUrlVars()["PROLIFIC_PID"]
 if (prolific_id == null){
   prolific_id = 'n/a'
-  console.log(prolific_id)
+}
+
+// Save study ID
+var study_id = getUrlVars()["STUDY_ID"]
+if (study_id == null){
+  study_id = 'n/a'
 }
 
 // browser + os info
@@ -279,6 +283,7 @@ var get_points_experiment = function() {
 jsPsych.data.addProperties({
   participant_id: participant_id,
   prolific_id: prolific_id,
+  study_id: study_id,
   name_design_r1: name_design_r1,
   name_design_r2: name_design_r2,
   browser_name: br.name,
@@ -501,7 +506,7 @@ jsPsych.init({
   override_safe_mode: true,
   preload_images: stimuli,
   on_finish: function(){
-   completion_code = 'EXPERIMENT_FINISHED'
+   completion_code = '4F74FD66'
    senddataNend()
  },
  on_interaction_data_update: function(data) { //if participant exits fullscreen
