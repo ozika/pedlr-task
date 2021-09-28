@@ -10,7 +10,6 @@ var free = {
         html += "<img src='"+jsPsych.timelineVariable('stimulus_right', true)+" 'style='margin:0px "+50/100 * img_scale+"px; width: "+400/100 * img_scale+"px;'>";
         return html;
       },
-      trial_duration: 3000,
       response_ends_trial: true,
       choices: ['f', 'j'],
       // Record pressed button and associated reward
@@ -31,10 +30,10 @@ var free = {
         data.is_rare = jsPsych.timelineVariable('is_rare', true)
         data.bad_forced = jsPsych.timelineVariable('bad_forced', true)
         // Add choice data
-        if(data.key_press == 70){
+        if(data.key_press == 70 && data.rt < 3000){
           data.choice = 'left'
           data.outcome = jsPsych.timelineVariable('outcome_left', true)
-        } else if(data.key_press == 74){
+        } else if(data.key_press == 74 && data.rt < 3000){
           data.choice = 'right'
           data.outcome = jsPsych.timelineVariable('outcome_right', true)
         } else {

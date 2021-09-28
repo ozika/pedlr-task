@@ -10,7 +10,6 @@ var forced = {
         html += "<img src='"+jsPsych.timelineVariable('stimulus_right', true)+" ' style='margin:0px "+50/100 * img_scale+"px; width: "+400/100 * img_scale+"px;'>";
         return html;
       },
-      trial_duration: 3000,
       response_ends_trial: true,
       choices: ['f', 'j'],
       // Record pressed button and associated reward
@@ -31,14 +30,14 @@ var forced = {
         data.is_rare = jsPsych.timelineVariable('is_rare', true)
         data.bad_forced = jsPsych.timelineVariable('bad_forced', true)
         // Check pressed button
-        if(data.key_press == 70){
+        if(data.key_press == 70 && data.rt < 3000){
           data.choice = 'left'
-        } else if(data.key_press == 74){
+        } else if(data.key_press == 74 && data.rt < 3000){
           data.choice = 'right'
         } else {
           data.choice = 'n/a'
         }
-        // Check if pressed button was forced
+        // Check if pressed button was forced and responded fast enough
         if(data.choice == jsPsych.timelineVariable('forced', true)){
           data.outcome = jsPsych.timelineVariable('outcome_' + data.choice, true)
         } else {
