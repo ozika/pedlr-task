@@ -491,24 +491,24 @@ function savedata(File2Save,name,jsonfy=true) {
 // Fill experiment timeline with parts of experiment
 // Info and consent page
 timeline.push(info_and_consent)
-// // Force fullscreen
-// timeline.push(fullscreen) // browser check + enter full screen
-// // Attention questions (+ Hiragana question)
-// timeline.push(attention_check)
+// Force fullscreen
+timeline.push(fullscreen) // browser check + enter full screen
+// Attention questions (+ Hiragana question)
+timeline.push(attention_check)
 // Task training (if attention checks are passed)
 timeline.push(training)
-// // Turn cursor off by default
-// timeline.push(cursor_off)
+// Turn cursor off by default
+timeline.push(cursor_off)
 // Task run 1
 timeline.push(experiment_r1)
-// // Mid break
-// timeline.push(halftime)
-// // Task run 2
-// timeline.push(experiment_r2)
-// // Turn cursor on again
-// timeline.push(cursor_on)
-// // Farewell & point display
-// timeline.push(goodbye)
+// Mid break
+timeline.push(halftime)
+// Task run 2
+timeline.push(experiment_r2)
+// Turn cursor on again
+timeline.push(cursor_on)
+// Farewell & point display
+timeline.push(goodbye)
 
 
 // Run experiment
@@ -516,10 +516,10 @@ jsPsych.init({
   timeline: timeline,
   override_safe_mode: true,
   preload_images: stimuli,
- //  on_finish: function(){
- //   completion_code = '4F74FD66'
- //   senddataNend()
- // },
+  on_finish: function(){
+   completion_code = '4F74FD66'
+   senddataNend()
+ },
  on_interaction_data_update: function(data) { //if participant exits fullscreen
       if (data.event == 'fullscreenexit' && should_be_in_fullscreen) {
         console.log('exited fullscreen');
@@ -590,7 +590,7 @@ jsPsych.init({
     senddataNend()
 
   },
-  on_finish: function(){jsPsych.data.displayData()}
+  //on_finish: function(){jsPsych.data.displayData()}
   // on_finish: function(){
   //   full_data = jsPsych.data.get().json()
   //   file_name = 'pedlr_data_'+participant_id
