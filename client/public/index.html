@@ -304,25 +304,25 @@ var timeline = []
 var experiment_r1 = {
   timeline: [if_free, if_forced, if_estimation, if_break],
   // Get timeline from design
-  // timeline_variables: design_r1
+  timeline_variables: design_r1
   // Example timeline for easy task testing (6 examples with break in between)
-  timeline_variables: [
-    {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
-    {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
-    {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
-    {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
-    {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
-    {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
-    {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
-    {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
-    {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
-    {type: 'estimation', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'stimuli/s1.png'},
-    {type: 'break', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'n/a'},
-    {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
-    {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
-    {type: 'estimation', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'stimuli/s1.png'},
-    {type: 'break', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'n/a'}
-  ]
+  // timeline_variables: [
+  //   {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
+  //   {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
+  //   {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
+  //   {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
+  //   {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
+  //   {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
+  //   {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
+  //   {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
+  //   {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
+  //   {type: 'estimation', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'stimuli/s1.png'},
+  //   {type: 'break', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'n/a'},
+  //   {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
+  //   {type: 'forced', stimulus_left: 'stimuli/s2_forced.png', stimulus_right: 'stimuli/s3.png', outcome_left: 12, outcome_right: 44, forced: 'left', stimulus_estimation: 'n/a'},
+  //   {type: 'estimation', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'stimuli/s1.png'},
+  //   {type: 'break', stimulus_left: 'n/a', stimulus_right: 'n/a', outcome_left: 'n/a', outcome_right: 'n/a', forced: 'n/a', stimulus_estimation: 'n/a'}
+  // ]
 }
 
 // Experiment run 2 procedure
