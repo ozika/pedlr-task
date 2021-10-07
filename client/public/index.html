@@ -80,7 +80,7 @@ var stimuli = ['stimuli/a1.png',
              ]
 
 // Create list of all designs (separate for each run)
-var all_designs_r2 = [
+var all_designs_r1 = [
   design_01_run_1, design_02_run_1, design_03_run_1, design_04_run_1,
   design_05_run_1, design_06_run_1, design_07_run_1, design_08_run_1,
   design_09_run_1, design_10_run_1, design_11_run_1, design_12_run_1,
@@ -88,7 +88,7 @@ var all_designs_r2 = [
   design_17_run_1, design_18_run_1, design_19_run_1, design_20_run_1
 ]
 
-var all_designs_r1 = [
+var all_designs_r2 = [
   design_01_run_2, design_02_run_2, design_03_run_2, design_04_run_2,
   design_05_run_2, design_06_run_2, design_07_run_2, design_08_run_2,
   design_09_run_2, design_10_run_2, design_11_run_2, design_12_run_2,
@@ -97,14 +97,14 @@ var all_designs_r1 = [
 ]
 
 // Get names of designs to save as variable
-var names_designs_r2 = [
+var names_designs_r1 = [
   'design_01_run_1', 'design_02_run_1', 'design_03_run_1', 'design_04_run_1',
   'design_05_run_1', 'design_06_run_1', 'design_07_run_1', 'design_08_run_1',
   'design_09_run_1', 'design_10_run_1', 'design_11_run_1', 'design_12_run_1',
   'design_13_run_1', 'design_14_run_1', 'design_15_run_1', 'design_16_run_1',
   'design_17_run_1', 'design_18_run_1', 'design_19_run_1', 'design_20_run_1'
 ]
-var names_designs_r1 = [
+var names_designs_r2 = [
   'design_01_run_2', 'design_02_run_2', 'design_03_run_2', 'design_04_run_2',
   'design_05_run_2', 'design_06_run_2', 'design_07_run_2', 'design_08_run_2',
   'design_09_run_2', 'design_10_run_2', 'design_11_run_2', 'design_12_run_2',
@@ -121,6 +121,20 @@ var design_r2 = all_designs_r2[sample]
 // Save names of designs
 var name_design_r1 = names_designs_r1[sample]
 var name_design_r2 = names_designs_r2[sample]
+
+// Randomize design order
+// Random index
+var rand_index = Math.floor(Math.random() * 2);
+// Create different design order based in random number
+if (rand_index == 0) {
+  var design_order = [design_r1, design_r2]
+  var name_design_order = [name_design_r1, name_design_r2]
+} else {
+  var design_order = [design_r2, design_r1]
+  var name_design_order = [name_design_r2, name_design_r1]
+}
+console.log(name_design_order)
+
 
 // Set scaling of images and margins to adjust size of experiment (in percentage)
 var img_scale = 30
@@ -288,8 +302,8 @@ jsPsych.data.addProperties({
   participant_id: participant_id,
   prolific_id: prolific_id,
   study_id: study_id,
-  name_design_r1: name_design_r1,
-  name_design_r2: name_design_r2,
+  name_design_r1: name_design_order[0],
+  name_design_r2: name_design_order[1],
   browser_name: br.name,
   browser_version: br.version,
   os_name: os.name,
@@ -304,7 +318,7 @@ var timeline = []
 var experiment_r1 = {
   timeline: [if_free, if_forced, if_estimation, if_break],
   // Get timeline from design
-  timeline_variables: design_r1
+  timeline_variables: design_order[0]
   // Example timeline for easy task testing (6 examples with break in between)
   // timeline_variables: [
   //   {type: 'free', stimulus_left: 'stimuli/s2.png', stimulus_right: 'stimuli/s3.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
@@ -329,7 +343,7 @@ var experiment_r1 = {
 var experiment_r2 = {
   timeline: [if_free, if_forced, if_estimation, if_break],
   // Get timeline from design
-  timeline_variables: design_r2
+  timeline_variables: design_order[1]
   // Example timeline for easy task testing (6 examples with break in between)
   // timeline_variables: [
   //   {type: 'free', stimulus_left: 'stimuli/s5.png', stimulus_right: 'stimuli/s6.png', outcome_left: 94, outcome_right: 26, forced: 'n/a', stimulus_estimation: 'n/a'},
