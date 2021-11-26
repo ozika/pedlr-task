@@ -43,7 +43,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3_forced.png",
     "outcome_left": 68,
-    "outcome_right": 80,
+    "outcome_right": 89,
     "forced": "right",
     "stimulus_estimation": "NA"
   },
@@ -75,7 +75,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 32,
-    "outcome_right": 73,
+    "outcome_right": 85,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -106,7 +106,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 85,
+    "outcome_left": 87,
     "outcome_right": 43,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -138,7 +138,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 89,
+    "outcome_left": 80,
     "outcome_right": 60,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -154,7 +154,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 93,
+    "outcome_left": 76,
     "outcome_right": 42,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -170,26 +170,10 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 73,
+    "outcome_left": 83,
     "outcome_right": 75,
     "forced": "NA",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 2,
-    "block_n": 3,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "estimation",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "stimuli/s1.png"
   },
   {
     "option_left": "NA",
@@ -224,6 +208,22 @@
     "stimulus_estimation": "stimuli/s3.png"
   },
   {
+    "option_left": "NA",
+    "option_right": "NA",
+    "comp_number": "NA",
+    "task_version": 2,
+    "block_n": 3,
+    "is_rare": "NA",
+    "bad_forced": "NA",
+    "type": "estimation",
+    "stimulus_left": "NA",
+    "stimulus_right": "NA",
+    "outcome_left": "NA",
+    "outcome_right": "NA",
+    "forced": "NA",
+    "stimulus_estimation": "stimuli/s1.png"
+  },
+  {
     "option_left": 1,
     "option_right": 3,
     "comp_number": 3,
@@ -235,7 +235,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 59,
-    "outcome_right": 81,
+    "outcome_right": 89,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -251,7 +251,7 @@
     "stimulus_left": "stimuli/s1_forced.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 69,
-    "outcome_right": 80,
+    "outcome_right": 81,
     "forced": "left",
     "stimulus_estimation": "NA"
   },
@@ -266,7 +266,7 @@
     "type": "forced",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4_forced.png",
-    "outcome_left": 76,
+    "outcome_left": 86,
     "outcome_right": 52,
     "forced": "right",
     "stimulus_estimation": "NA"
@@ -283,7 +283,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3_forced.png",
     "outcome_left": 52,
-    "outcome_right": 87,
+    "outcome_right": 84,
     "forced": "right",
     "stimulus_estimation": "NA"
   },
@@ -299,7 +299,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 51,
-    "outcome_right": 84,
+    "outcome_right": 81,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -331,7 +331,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 69,
-    "outcome_right": 86,
+    "outcome_right": 85,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -363,7 +363,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 75,
-    "outcome_right": 81,
+    "outcome_right": 77,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -394,7 +394,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 85,
+    "outcome_left": 79,
     "outcome_right": 50,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -426,7 +426,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 87,
+    "outcome_left": 75,
     "outcome_right": 47,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -459,7 +459,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 55,
-    "outcome_right": 83,
+    "outcome_right": 84,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -474,7 +474,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 80,
+    "outcome_left": 81,
     "outcome_right": 52,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -490,7 +490,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 76,
+    "outcome_left": 80,
     "outcome_right": 50,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -507,7 +507,7 @@
     "stimulus_left": "stimuli/s1_forced.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 67,
-    "outcome_right": 81,
+    "outcome_right": 75,
     "forced": "left",
     "stimulus_estimation": "NA"
   },
@@ -526,22 +526,6 @@
     "outcome_right": 49,
     "forced": "NA",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 2,
-    "block_n": 3,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "estimation",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "stimuli/s4.png"
   },
   {
     "option_left": "NA",
@@ -576,6 +560,22 @@
     "stimulus_estimation": "stimuli/s3.png"
   },
   {
+    "option_left": "NA",
+    "option_right": "NA",
+    "comp_number": "NA",
+    "task_version": 2,
+    "block_n": 3,
+    "is_rare": "NA",
+    "bad_forced": "NA",
+    "type": "estimation",
+    "stimulus_left": "NA",
+    "stimulus_right": "NA",
+    "outcome_left": "NA",
+    "outcome_right": "NA",
+    "forced": "NA",
+    "stimulus_estimation": "stimuli/s4.png"
+  },
+  {
     "option_left": 2,
     "option_right": 3,
     "comp_number": 9,
@@ -587,7 +587,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3_forced.png",
     "outcome_left": 79,
-    "outcome_right": 85,
+    "outcome_right": 75,
     "forced": "right",
     "stimulus_estimation": "NA"
   },
@@ -634,7 +634,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 83,
+    "outcome_left": 78,
     "outcome_right": 35,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -651,7 +651,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 44,
-    "outcome_right": 77,
+    "outcome_right": 85,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -667,7 +667,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 74,
-    "outcome_right": 83,
+    "outcome_right": 84,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -682,7 +682,7 @@
     "type": "forced",
     "stimulus_left": "stimuli/s3_forced.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 86,
+    "outcome_left": 85,
     "outcome_right": 53,
     "forced": "left",
     "stimulus_estimation": "NA"
@@ -698,7 +698,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 79,
+    "outcome_left": 81,
     "outcome_right": 66,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -731,7 +731,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 76,
-    "outcome_right": 75,
+    "outcome_right": 82,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -747,7 +747,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 67,
-    "outcome_right": 75,
+    "outcome_right": 90,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -765,7 +765,7 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s4.png"
+    "stimulus_estimation": "stimuli/s3.png"
   },
   {
     "option_left": "NA",
@@ -797,7 +797,7 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s3.png"
+    "stimulus_estimation": "stimuli/s4.png"
   },
   {
     "option_left": 1,
@@ -826,7 +826,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 75,
+    "outcome_left": 77,
     "outcome_right": 53,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -843,7 +843,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 48,
-    "outcome_right": 85,
+    "outcome_right": 77,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -859,7 +859,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 53,
-    "outcome_right": 88,
+    "outcome_right": 83,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -875,7 +875,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 45,
-    "outcome_right": 84,
+    "outcome_right": 81,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -890,7 +890,7 @@
     "type": "forced",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4_forced.png",
-    "outcome_left": 81,
+    "outcome_left": 88,
     "outcome_right": 47,
     "forced": "right",
     "stimulus_estimation": "NA"
@@ -906,7 +906,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 80,
+    "outcome_left": 95,
     "outcome_right": 63,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -923,7 +923,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 39,
-    "outcome_right": 83,
+    "outcome_right": 80,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -938,7 +938,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 78,
+    "outcome_left": 84,
     "outcome_right": 61,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -986,7 +986,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 85,
+    "outcome_left": 79,
     "outcome_right": 69,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -1003,7 +1003,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 72,
-    "outcome_right": 90,
+    "outcome_right": 84,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -1018,7 +1018,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 81,
+    "outcome_left": 85,
     "outcome_right": 43,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -1050,57 +1050,9 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 77,
+    "outcome_left": 88,
     "outcome_right": 77,
     "forced": "NA",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": 3,
-    "option_right": 1,
-    "comp_number": 20,
-    "task_version": 2,
-    "block_n": 3,
-    "is_rare": 0,
-    "bad_forced": 0,
-    "type": "free",
-    "stimulus_left": "stimuli/s3.png",
-    "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 88,
-    "outcome_right": 49,
-    "forced": "NA",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": 1,
-    "option_right": 3,
-    "comp_number": 21,
-    "task_version": 2,
-    "block_n": 3,
-    "is_rare": 0,
-    "bad_forced": 0,
-    "type": "forced",
-    "stimulus_left": "stimuli/s4.png",
-    "stimulus_right": "stimuli/s3_forced.png",
-    "outcome_left": 47,
-    "outcome_right": 85,
-    "forced": "right",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": 1,
-    "option_right": 2,
-    "comp_number": 19,
-    "task_version": 2,
-    "block_n": 3,
-    "is_rare": 1,
-    "bad_forced": 0,
-    "type": "forced",
-    "stimulus_left": "stimuli/s4.png",
-    "stimulus_right": "stimuli/s1_forced.png",
-    "outcome_left": 54,
-    "outcome_right": 34,
-    "forced": "right",
     "stimulus_estimation": "NA"
   },
   {
@@ -1133,7 +1085,7 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s3.png"
+    "stimulus_estimation": "stimuli/s4.png"
   },
   {
     "option_left": "NA",
@@ -1149,7 +1101,55 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s4.png"
+    "stimulus_estimation": "stimuli/s3.png"
+  },
+  {
+    "option_left": 3,
+    "option_right": 1,
+    "comp_number": 20,
+    "task_version": 2,
+    "block_n": 3,
+    "is_rare": 0,
+    "bad_forced": 0,
+    "type": "free",
+    "stimulus_left": "stimuli/s3.png",
+    "stimulus_right": "stimuli/s4.png",
+    "outcome_left": 88,
+    "outcome_right": 49,
+    "forced": "NA",
+    "stimulus_estimation": "NA"
+  },
+  {
+    "option_left": 1,
+    "option_right": 3,
+    "comp_number": 21,
+    "task_version": 2,
+    "block_n": 3,
+    "is_rare": 0,
+    "bad_forced": 0,
+    "type": "forced",
+    "stimulus_left": "stimuli/s4.png",
+    "stimulus_right": "stimuli/s3_forced.png",
+    "outcome_left": 47,
+    "outcome_right": 79,
+    "forced": "right",
+    "stimulus_estimation": "NA"
+  },
+  {
+    "option_left": 2,
+    "option_right": 1,
+    "comp_number": 32,
+    "task_version": 2,
+    "block_n": 3,
+    "is_rare": 1,
+    "bad_forced": 0,
+    "type": "free",
+    "stimulus_left": "stimuli/s1.png",
+    "stimulus_right": "stimuli/s4.png",
+    "outcome_left": 34,
+    "outcome_right": 42,
+    "forced": "NA",
+    "stimulus_estimation": "NA"
   },
   {
     "option_left": 2,
@@ -1194,7 +1194,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 92,
+    "outcome_left": 88,
     "outcome_right": 33,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -1211,7 +1211,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 40,
-    "outcome_right": 77,
+    "outcome_right": 79,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -1227,7 +1227,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 56,
-    "outcome_right": 74,
+    "outcome_right": 91,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -1258,7 +1258,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 84,
+    "outcome_left": 80,
     "outcome_right": 49,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -1275,7 +1275,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 41,
-    "outcome_right": 91,
+    "outcome_right": 77,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -1290,7 +1290,7 @@
     "type": "forced",
     "stimulus_left": "stimuli/s3_forced.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 78,
+    "outcome_left": 87,
     "outcome_right": 86,
     "forced": "left",
     "stimulus_estimation": "NA"
@@ -1307,7 +1307,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 57,
-    "outcome_right": 77,
+    "outcome_right": 76,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -1323,7 +1323,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 46,
-    "outcome_right": 83,
+    "outcome_right": 78,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -1338,7 +1338,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 85,
+    "outcome_left": 73,
     "outcome_right": 54,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -1355,7 +1355,7 @@
     "stimulus_left": "stimuli/s4_forced.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 47,
-    "outcome_right": 79,
+    "outcome_right": 72,
     "forced": "left",
     "stimulus_estimation": "NA"
   },
@@ -1376,36 +1376,20 @@
     "stimulus_estimation": "NA"
   },
   {
-    "option_left": 3,
+    "option_left": 2,
     "option_right": 1,
-    "comp_number": 30,
+    "comp_number": 31,
     "task_version": 2,
     "block_n": 3,
-    "is_rare": 0,
+    "is_rare": 1,
     "bad_forced": 0,
-    "type": "free",
-    "stimulus_left": "stimuli/s3.png",
+    "type": "forced",
+    "stimulus_left": "stimuli/s1_forced.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 88,
-    "outcome_right": 48,
-    "forced": "NA",
+    "outcome_left": 35,
+    "outcome_right": 51,
+    "forced": "left",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 2,
-    "block_n": 3,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "estimation",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "stimuli/s1.png"
   },
   {
     "option_left": "NA",
@@ -1440,6 +1424,22 @@
     "stimulus_estimation": "stimuli/s4.png"
   },
   {
+    "option_left": "NA",
+    "option_right": "NA",
+    "comp_number": "NA",
+    "task_version": 2,
+    "block_n": 3,
+    "is_rare": "NA",
+    "bad_forced": "NA",
+    "type": "estimation",
+    "stimulus_left": "NA",
+    "stimulus_right": "NA",
+    "outcome_left": "NA",
+    "outcome_right": "NA",
+    "forced": "NA",
+    "stimulus_estimation": "stimuli/s1.png"
+  },
+  {
     "option_left": 3,
     "option_right": 2,
     "comp_number": 23,
@@ -1450,7 +1450,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 87,
+    "outcome_left": 88,
     "outcome_right": 41,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -1482,7 +1482,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 80,
+    "outcome_left": 87,
     "outcome_right": 39,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -1499,7 +1499,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 42,
-    "outcome_right": 86,
+    "outcome_right": 83,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -1514,7 +1514,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 87,
+    "outcome_left": 79,
     "outcome_right": 67,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -1531,7 +1531,7 @@
     "stimulus_left": "stimuli/s4_forced.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 45,
-    "outcome_right": 79,
+    "outcome_right": 80,
     "forced": "left",
     "stimulus_estimation": "NA"
   },
@@ -1579,7 +1579,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 77,
-    "outcome_right": 79,
+    "outcome_right": 86,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -1611,7 +1611,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 38,
-    "outcome_right": 89,
+    "outcome_right": 74,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -1626,7 +1626,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 73,
+    "outcome_left": 85,
     "outcome_right": 73,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -1642,7 +1642,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 87,
+    "outcome_left": 72,
     "outcome_right": 44,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -1659,9 +1659,57 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 76,
-    "outcome_right": 77,
+    "outcome_right": 83,
     "forced": "NA",
     "stimulus_estimation": "NA"
+  },
+  {
+    "option_left": "NA",
+    "option_right": "NA",
+    "comp_number": "NA",
+    "task_version": 2,
+    "block_n": 3,
+    "is_rare": "NA",
+    "bad_forced": "NA",
+    "type": "estimation",
+    "stimulus_left": "NA",
+    "stimulus_right": "NA",
+    "outcome_left": "NA",
+    "outcome_right": "NA",
+    "forced": "NA",
+    "stimulus_estimation": "stimuli/s4.png"
+  },
+  {
+    "option_left": "NA",
+    "option_right": "NA",
+    "comp_number": "NA",
+    "task_version": 2,
+    "block_n": 3,
+    "is_rare": "NA",
+    "bad_forced": "NA",
+    "type": "estimation",
+    "stimulus_left": "NA",
+    "stimulus_right": "NA",
+    "outcome_left": "NA",
+    "outcome_right": "NA",
+    "forced": "NA",
+    "stimulus_estimation": "stimuli/s1.png"
+  },
+  {
+    "option_left": "NA",
+    "option_right": "NA",
+    "comp_number": "NA",
+    "task_version": 2,
+    "block_n": 3,
+    "is_rare": "NA",
+    "bad_forced": "NA",
+    "type": "estimation",
+    "stimulus_left": "NA",
+    "stimulus_right": "NA",
+    "outcome_left": "NA",
+    "outcome_right": "NA",
+    "forced": "NA",
+    "stimulus_estimation": "stimuli/s3.png"
   },
   {
     "option_left": 1,
@@ -1707,7 +1755,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 68,
-    "outcome_right": 76,
+    "outcome_right": 79,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -1723,7 +1771,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 79,
-    "outcome_right": 78,
+    "outcome_right": 71,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -1754,7 +1802,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 85,
+    "outcome_left": 92,
     "outcome_right": 72,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -1786,74 +1834,26 @@
     "type": "forced",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1_forced.png",
-    "outcome_left": 86,
+    "outcome_left": 90,
     "outcome_right": 34,
     "forced": "right",
     "stimulus_estimation": "NA"
   },
   {
-    "option_left": 2,
+    "option_left": 3,
     "option_right": 1,
-    "comp_number": 31,
+    "comp_number": 30,
     "task_version": 2,
     "block_n": 3,
-    "is_rare": 1,
+    "is_rare": 0,
     "bad_forced": 0,
-    "type": "forced",
-    "stimulus_left": "stimuli/s1_forced.png",
+    "type": "free",
+    "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 35,
-    "outcome_right": 51,
-    "forced": "left",
+    "outcome_left": 87,
+    "outcome_right": 48,
+    "forced": "NA",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 2,
-    "block_n": 3,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "estimation",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "stimuli/s1.png"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 2,
-    "block_n": 3,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "estimation",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "stimuli/s3.png"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 2,
-    "block_n": 3,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "estimation",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "stimuli/s4.png"
   },
   {
     "option_left": 3,
@@ -1882,42 +1882,26 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 72,
+    "outcome_left": 74,
     "outcome_right": 53,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
   {
-    "option_left": 2,
-    "option_right": 1,
-    "comp_number": 32,
+    "option_left": 1,
+    "option_right": 2,
+    "comp_number": 19,
     "task_version": 2,
     "block_n": 3,
     "is_rare": 1,
     "bad_forced": 0,
-    "type": "free",
-    "stimulus_left": "stimuli/s1.png",
-    "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 34,
-    "outcome_right": 42,
-    "forced": "NA",
+    "type": "forced",
+    "stimulus_left": "stimuli/s4.png",
+    "stimulus_right": "stimuli/s1_forced.png",
+    "outcome_left": 54,
+    "outcome_right": 34,
+    "forced": "right",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 2,
-    "block_n": 3,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "estimation",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "stimuli/s3.png"
   },
   {
     "option_left": "NA",
@@ -1952,6 +1936,22 @@
     "stimulus_estimation": "stimuli/s1.png"
   },
   {
+    "option_left": "NA",
+    "option_right": "NA",
+    "comp_number": "NA",
+    "task_version": 2,
+    "block_n": 3,
+    "is_rare": "NA",
+    "bad_forced": "NA",
+    "type": "estimation",
+    "stimulus_left": "NA",
+    "stimulus_right": "NA",
+    "outcome_left": "NA",
+    "outcome_right": "NA",
+    "forced": "NA",
+    "stimulus_estimation": "stimuli/s3.png"
+  },
+  {
     "option_left": 3,
     "option_right": 2,
     "comp_number": 36,
@@ -1962,7 +1962,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 79,
+    "outcome_left": 90,
     "outcome_right": 78,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -1995,7 +1995,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 51,
-    "outcome_right": 72,
+    "outcome_right": 81,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -2011,7 +2011,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 75,
-    "outcome_right": 83,
+    "outcome_right": 81,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -2026,7 +2026,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 91,
+    "outcome_left": 86,
     "outcome_right": 47,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -2043,7 +2043,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 77,
-    "outcome_right": 81,
+    "outcome_right": 77,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -2059,7 +2059,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 48,
-    "outcome_right": 88,
+    "outcome_right": 77,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -2074,7 +2074,7 @@
     "type": "forced",
     "stimulus_left": "stimuli/s3_forced.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 89,
+    "outcome_left": 83,
     "outcome_right": 66,
     "forced": "left",
     "stimulus_estimation": "NA"
@@ -2171,7 +2171,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 55,
-    "outcome_right": 79,
+    "outcome_right": 78,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -2186,7 +2186,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 87,
+    "outcome_left": 90,
     "outcome_right": 50,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -2205,7 +2205,7 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s3.png"
+    "stimulus_estimation": "stimuli/s4.png"
   },
   {
     "option_left": "NA",
@@ -2237,7 +2237,7 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s4.png"
+    "stimulus_estimation": "stimuli/s3.png"
   },
   {
     "option_left": 1,
@@ -2283,7 +2283,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 67,
-    "outcome_right": 71,
+    "outcome_right": 83,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -2298,7 +2298,7 @@
     "type": "forced",
     "stimulus_left": "stimuli/s3_forced.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 88,
+    "outcome_left": 78,
     "outcome_right": 46,
     "forced": "left",
     "stimulus_estimation": "NA"
@@ -2347,7 +2347,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 71,
-    "outcome_right": 80,
+    "outcome_right": 79,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -2362,7 +2362,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 74,
+    "outcome_left": 76,
     "outcome_right": 65,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -2378,7 +2378,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 89,
+    "outcome_left": 73,
     "outcome_right": 74,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -2395,7 +2395,7 @@
     "stimulus_left": "stimuli/s1_forced.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 73,
-    "outcome_right": 80,
+    "outcome_right": 76,
     "forced": "left",
     "stimulus_estimation": "NA"
   },
@@ -2410,7 +2410,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 86,
+    "outcome_left": 78,
     "outcome_right": 72,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -2458,7 +2458,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 83,
+    "outcome_left": 89,
     "outcome_right": 53,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -2474,7 +2474,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 89,
+    "outcome_left": 86,
     "outcome_right": 49,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -2509,7 +2509,7 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s4.png"
+    "stimulus_estimation": "stimuli/s1.png"
   },
   {
     "option_left": "NA",
@@ -2541,7 +2541,7 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s1.png"
+    "stimulus_estimation": "stimuli/s4.png"
   },
   {
     "option_left": 1,
@@ -2602,7 +2602,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 78,
+    "outcome_left": 82,
     "outcome_right": 69,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -2618,7 +2618,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 94,
+    "outcome_left": 81,
     "outcome_right": 46,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -2635,7 +2635,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 72,
-    "outcome_right": 81,
+    "outcome_right": 83,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -2666,7 +2666,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 93,
+    "outcome_left": 82,
     "outcome_right": 69,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -2683,7 +2683,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 55,
-    "outcome_right": 77,
+    "outcome_right": 83,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -2731,41 +2731,121 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 71,
-    "outcome_right": 78,
+    "outcome_right": 80,
+    "forced": "NA",
+    "stimulus_estimation": "NA"
+  },
+  {
+    "option_left": 2,
+    "option_right": 3,
+    "comp_number": 18,
+    "task_version": 2,
+    "block_n": 4,
+    "is_rare": 0,
+    "bad_forced": 0,
+    "type": "free",
+    "stimulus_left": "stimuli/s1.png",
+    "stimulus_right": "stimuli/s3.png",
+    "outcome_left": 74,
+    "outcome_right": 84,
+    "forced": "NA",
+    "stimulus_estimation": "NA"
+  },
+  {
+    "option_left": 2,
+    "option_right": 1,
+    "comp_number": 11,
+    "task_version": 2,
+    "block_n": 4,
+    "is_rare": 0,
+    "bad_forced": 0,
+    "type": "free",
+    "stimulus_left": "stimuli/s1.png",
+    "stimulus_right": "stimuli/s4.png",
+    "outcome_left": 76,
+    "outcome_right": 52,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
   {
     "option_left": 3,
     "option_right": 2,
-    "comp_number": 10,
+    "comp_number": 11,
     "task_version": 2,
     "block_n": 4,
-    "is_rare": 1,
+    "is_rare": 0,
+    "bad_forced": 0,
+    "type": "free",
+    "stimulus_left": "stimuli/s3.png",
+    "stimulus_right": "stimuli/s1.png",
+    "outcome_left": 84,
+    "outcome_right": 75,
+    "forced": "NA",
+    "stimulus_estimation": "NA"
+  },
+  {
+    "option_left": 3,
+    "option_right": 2,
+    "comp_number": 12,
+    "task_version": 2,
+    "block_n": 4,
+    "is_rare": 0,
+    "bad_forced": 0,
+    "type": "free",
+    "stimulus_left": "stimuli/s3.png",
+    "stimulus_right": "stimuli/s1.png",
+    "outcome_left": 86,
+    "outcome_right": 81,
+    "forced": "NA",
+    "stimulus_estimation": "NA"
+  },
+  {
+    "option_left": 3,
+    "option_right": 1,
+    "comp_number": 5,
+    "task_version": 2,
+    "block_n": 4,
+    "is_rare": 0,
     "bad_forced": 0,
     "type": "forced",
     "stimulus_left": "stimuli/s3.png",
-    "stimulus_right": "stimuli/s1_forced.png",
-    "outcome_left": 78,
-    "outcome_right": 37,
+    "stimulus_right": "stimuli/s4_forced.png",
+    "outcome_left": 92,
+    "outcome_right": 60,
     "forced": "right",
     "stimulus_estimation": "NA"
   },
   {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
+    "option_left": 2,
+    "option_right": 3,
+    "comp_number": 13,
     "task_version": 2,
     "block_n": 4,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "estimation",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
+    "is_rare": 0,
+    "bad_forced": 0,
+    "type": "free",
+    "stimulus_left": "stimuli/s1.png",
+    "stimulus_right": "stimuli/s3.png",
+    "outcome_left": 71,
+    "outcome_right": 85,
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s4.png"
+    "stimulus_estimation": "NA"
+  },
+  {
+    "option_left": 2,
+    "option_right": 3,
+    "comp_number": 14,
+    "task_version": 2,
+    "block_n": 4,
+    "is_rare": 0,
+    "bad_forced": 0,
+    "type": "free",
+    "stimulus_left": "stimuli/s1.png",
+    "stimulus_right": "stimuli/s3.png",
+    "outcome_left": 74,
+    "outcome_right": 96,
+    "forced": "NA",
+    "stimulus_estimation": "NA"
   },
   {
     "option_left": "NA",
@@ -2797,103 +2877,23 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
+    "stimulus_estimation": "stimuli/s4.png"
+  },
+  {
+    "option_left": "NA",
+    "option_right": "NA",
+    "comp_number": "NA",
+    "task_version": 2,
+    "block_n": 4,
+    "is_rare": "NA",
+    "bad_forced": "NA",
+    "type": "estimation",
+    "stimulus_left": "NA",
+    "stimulus_right": "NA",
+    "outcome_left": "NA",
+    "outcome_right": "NA",
+    "forced": "NA",
     "stimulus_estimation": "stimuli/s3.png"
-  },
-  {
-    "option_left": 2,
-    "option_right": 1,
-    "comp_number": 11,
-    "task_version": 2,
-    "block_n": 4,
-    "is_rare": 0,
-    "bad_forced": 0,
-    "type": "free",
-    "stimulus_left": "stimuli/s1.png",
-    "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 76,
-    "outcome_right": 52,
-    "forced": "NA",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": 3,
-    "option_right": 2,
-    "comp_number": 11,
-    "task_version": 2,
-    "block_n": 4,
-    "is_rare": 0,
-    "bad_forced": 0,
-    "type": "free",
-    "stimulus_left": "stimuli/s3.png",
-    "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 88,
-    "outcome_right": 75,
-    "forced": "NA",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": 3,
-    "option_right": 2,
-    "comp_number": 12,
-    "task_version": 2,
-    "block_n": 4,
-    "is_rare": 0,
-    "bad_forced": 0,
-    "type": "free",
-    "stimulus_left": "stimuli/s3.png",
-    "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 82,
-    "outcome_right": 81,
-    "forced": "NA",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": 3,
-    "option_right": 1,
-    "comp_number": 5,
-    "task_version": 2,
-    "block_n": 4,
-    "is_rare": 0,
-    "bad_forced": 0,
-    "type": "forced",
-    "stimulus_left": "stimuli/s3.png",
-    "stimulus_right": "stimuli/s4_forced.png",
-    "outcome_left": 81,
-    "outcome_right": 60,
-    "forced": "right",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": 2,
-    "option_right": 3,
-    "comp_number": 13,
-    "task_version": 2,
-    "block_n": 4,
-    "is_rare": 0,
-    "bad_forced": 0,
-    "type": "free",
-    "stimulus_left": "stimuli/s1.png",
-    "stimulus_right": "stimuli/s3.png",
-    "outcome_left": 71,
-    "outcome_right": 82,
-    "forced": "NA",
-    "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": 2,
-    "option_right": 3,
-    "comp_number": 14,
-    "task_version": 2,
-    "block_n": 4,
-    "is_rare": 0,
-    "bad_forced": 0,
-    "type": "free",
-    "stimulus_left": "stimuli/s1.png",
-    "stimulus_right": "stimuli/s3.png",
-    "outcome_left": 74,
-    "outcome_right": 76,
-    "forced": "NA",
-    "stimulus_estimation": "NA"
   },
   {
     "option_left": 2,
@@ -2938,7 +2938,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 82,
+    "outcome_left": 85,
     "outcome_right": 42,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -2954,7 +2954,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 84,
+    "outcome_left": 82,
     "outcome_right": 51,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -2971,7 +2971,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 40,
-    "outcome_right": 81,
+    "outcome_right": 84,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3003,7 +3003,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 43,
-    "outcome_right": 82,
+    "outcome_right": 74,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3050,7 +3050,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 86,
+    "outcome_left": 82,
     "outcome_right": 61,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -3067,7 +3067,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 44,
-    "outcome_right": 84,
+    "outcome_right": 86,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3083,7 +3083,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 64,
-    "outcome_right": 88,
+    "outcome_right": 87,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3099,25 +3099,41 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3_forced.png",
     "outcome_left": 42,
-    "outcome_right": 82,
+    "outcome_right": 80,
     "forced": "right",
     "stimulus_estimation": "NA"
   },
   {
-    "option_left": 2,
-    "option_right": 3,
-    "comp_number": 18,
+    "option_left": 3,
+    "option_right": 2,
+    "comp_number": 10,
     "task_version": 2,
     "block_n": 4,
-    "is_rare": 0,
+    "is_rare": 1,
     "bad_forced": 0,
-    "type": "free",
-    "stimulus_left": "stimuli/s1.png",
-    "stimulus_right": "stimuli/s3.png",
-    "outcome_left": 74,
-    "outcome_right": 87,
-    "forced": "NA",
+    "type": "forced",
+    "stimulus_left": "stimuli/s3.png",
+    "stimulus_right": "stimuli/s1_forced.png",
+    "outcome_left": 79,
+    "outcome_right": 37,
+    "forced": "right",
     "stimulus_estimation": "NA"
+  },
+  {
+    "option_left": "NA",
+    "option_right": "NA",
+    "comp_number": "NA",
+    "task_version": 2,
+    "block_n": 4,
+    "is_rare": "NA",
+    "bad_forced": "NA",
+    "type": "estimation",
+    "stimulus_left": "NA",
+    "stimulus_right": "NA",
+    "outcome_left": "NA",
+    "outcome_right": "NA",
+    "forced": "NA",
+    "stimulus_estimation": "stimuli/s1.png"
   },
   {
     "option_left": "NA",
@@ -3152,22 +3168,6 @@
     "stimulus_estimation": "stimuli/s3.png"
   },
   {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 2,
-    "block_n": 4,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "estimation",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "stimuli/s1.png"
-  },
-  {
     "option_left": 3,
     "option_right": 2,
     "comp_number": 19,
@@ -3178,7 +3178,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 90,
+    "outcome_left": 93,
     "outcome_right": 81,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -3210,7 +3210,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 96,
+    "outcome_left": 93,
     "outcome_right": 50,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -3227,7 +3227,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 54,
-    "outcome_right": 90,
+    "outcome_right": 88,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3243,7 +3243,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 80,
-    "outcome_right": 84,
+    "outcome_right": 70,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3258,7 +3258,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 82,
+    "outcome_left": 92,
     "outcome_right": 70,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -3274,7 +3274,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 82,
+    "outcome_left": 89,
     "outcome_right": 57,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -3291,7 +3291,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 79,
-    "outcome_right": 80,
+    "outcome_right": 89,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3306,7 +3306,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 79,
+    "outcome_left": 83,
     "outcome_right": 53,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -3323,7 +3323,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 42,
-    "outcome_right": 82,
+    "outcome_right": 91,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3370,7 +3370,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 86,
+    "outcome_left": 78,
     "outcome_right": 30,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -3386,7 +3386,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 91,
+    "outcome_left": 84,
     "outcome_right": 70,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -3405,7 +3405,7 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s1.png"
+    "stimulus_estimation": "stimuli/s4.png"
   },
   {
     "option_left": "NA",
@@ -3437,7 +3437,7 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s4.png"
+    "stimulus_estimation": "stimuli/s1.png"
   },
   {
     "option_left": 1,
@@ -3451,7 +3451,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 51,
-    "outcome_right": 84,
+    "outcome_right": 89,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3499,7 +3499,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 48,
-    "outcome_right": 77,
+    "outcome_right": 69,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3547,7 +3547,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 80,
-    "outcome_right": 81,
+    "outcome_right": 80,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3578,7 +3578,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 90,
+    "outcome_left": 82,
     "outcome_right": 50,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -3595,7 +3595,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 46,
-    "outcome_right": 92,
+    "outcome_right": 81,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3610,7 +3610,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 89,
+    "outcome_left": 86,
     "outcome_right": 77,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -3649,18 +3649,18 @@
   },
   {
     "option_left": 3,
-    "option_right": 1,
-    "comp_number": 20,
+    "option_right": 2,
+    "comp_number": 36,
     "task_version": 2,
     "block_n": 4,
-    "is_rare": 0,
+    "is_rare": 1,
     "bad_forced": 0,
     "type": "forced",
-    "stimulus_left": "stimuli/s3_forced.png",
-    "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 83,
-    "outcome_right": 49,
-    "forced": "left",
+    "stimulus_left": "stimuli/s3.png",
+    "stimulus_right": "stimuli/s1_forced.png",
+    "outcome_left": 81,
+    "outcome_right": 40,
+    "forced": "right",
     "stimulus_estimation": "NA"
   },
   {
@@ -3677,7 +3677,7 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s3.png"
+    "stimulus_estimation": "stimuli/s4.png"
   },
   {
     "option_left": "NA",
@@ -3709,7 +3709,7 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s4.png"
+    "stimulus_estimation": "stimuli/s3.png"
   },
   {
     "option_left": 2,
@@ -3739,7 +3739,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3_forced.png",
     "outcome_left": 52,
-    "outcome_right": 69,
+    "outcome_right": 85,
     "forced": "right",
     "stimulus_estimation": "NA"
   },
@@ -3755,7 +3755,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 44,
-    "outcome_right": 85,
+    "outcome_right": 77,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3771,7 +3771,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 47,
-    "outcome_right": 79,
+    "outcome_right": 75,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3787,7 +3787,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 52,
-    "outcome_right": 74,
+    "outcome_right": 82,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3818,7 +3818,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 78,
+    "outcome_left": 85,
     "outcome_right": 56,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -3851,7 +3851,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 51,
-    "outcome_right": 90,
+    "outcome_right": 85,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3899,7 +3899,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 47,
-    "outcome_right": 70,
+    "outcome_right": 84,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3914,7 +3914,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 84,
+    "outcome_left": 78,
     "outcome_right": 45,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -3931,7 +3931,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 36,
-    "outcome_right": 83,
+    "outcome_right": 78,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -3949,7 +3949,7 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s1.png"
+    "stimulus_estimation": "stimuli/s3.png"
   },
   {
     "option_left": "NA",
@@ -3981,7 +3981,7 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
-    "stimulus_estimation": "stimuli/s3.png"
+    "stimulus_estimation": "stimuli/s1.png"
   },
   {
     "option_left": 1,
@@ -4027,7 +4027,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 62,
-    "outcome_right": 78,
+    "outcome_right": 87,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -4042,7 +4042,7 @@
     "type": "forced",
     "stimulus_left": "stimuli/s3_forced.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 82,
+    "outcome_left": 87,
     "outcome_right": 75,
     "forced": "left",
     "stimulus_estimation": "NA"
@@ -4058,7 +4058,7 @@
     "type": "forced",
     "stimulus_left": "stimuli/s3_forced.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 86,
+    "outcome_left": 82,
     "outcome_right": 51,
     "forced": "left",
     "stimulus_estimation": "NA"
@@ -4075,7 +4075,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 38,
-    "outcome_right": 75,
+    "outcome_right": 76,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -4106,7 +4106,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 81,
+    "outcome_left": 76,
     "outcome_right": 48,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -4123,7 +4123,7 @@
     "stimulus_left": "stimuli/s4_forced.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 54,
-    "outcome_right": 76,
+    "outcome_right": 90,
     "forced": "left",
     "stimulus_estimation": "NA"
   },
@@ -4138,7 +4138,7 @@
     "type": "forced",
     "stimulus_left": "stimuli/s3_forced.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 85,
+    "outcome_left": 82,
     "outcome_right": 72,
     "forced": "left",
     "stimulus_estimation": "NA"
@@ -4154,7 +4154,7 @@
     "type": "forced",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4_forced.png",
-    "outcome_left": 78,
+    "outcome_left": 87,
     "outcome_right": 51,
     "forced": "right",
     "stimulus_estimation": "NA"
@@ -4171,7 +4171,7 @@
     "stimulus_left": "stimuli/s1_forced.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 79,
-    "outcome_right": 80,
+    "outcome_right": 91,
     "forced": "left",
     "stimulus_estimation": "NA"
   },
@@ -4186,7 +4186,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 86,
+    "outcome_left": 83,
     "outcome_right": 53,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -4234,7 +4234,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 82,
+    "outcome_left": 83,
     "outcome_right": 66,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -4250,10 +4250,58 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 76,
+    "outcome_left": 83,
     "outcome_right": 38,
     "forced": "NA",
     "stimulus_estimation": "NA"
+  },
+  {
+    "option_left": "NA",
+    "option_right": "NA",
+    "comp_number": "NA",
+    "task_version": 2,
+    "block_n": 4,
+    "is_rare": "NA",
+    "bad_forced": "NA",
+    "type": "estimation",
+    "stimulus_left": "NA",
+    "stimulus_right": "NA",
+    "outcome_left": "NA",
+    "outcome_right": "NA",
+    "forced": "NA",
+    "stimulus_estimation": "stimuli/s1.png"
+  },
+  {
+    "option_left": "NA",
+    "option_right": "NA",
+    "comp_number": "NA",
+    "task_version": 2,
+    "block_n": 4,
+    "is_rare": "NA",
+    "bad_forced": "NA",
+    "type": "estimation",
+    "stimulus_left": "NA",
+    "stimulus_right": "NA",
+    "outcome_left": "NA",
+    "outcome_right": "NA",
+    "forced": "NA",
+    "stimulus_estimation": "stimuli/s4.png"
+  },
+  {
+    "option_left": "NA",
+    "option_right": "NA",
+    "comp_number": "NA",
+    "task_version": 2,
+    "block_n": 4,
+    "is_rare": "NA",
+    "bad_forced": "NA",
+    "type": "estimation",
+    "stimulus_left": "NA",
+    "stimulus_right": "NA",
+    "outcome_left": "NA",
+    "outcome_right": "NA",
+    "forced": "NA",
+    "stimulus_estimation": "stimuli/s3.png"
   },
   {
     "option_left": 2,
@@ -4267,7 +4315,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 71,
-    "outcome_right": 80,
+    "outcome_right": 86,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -4299,7 +4347,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 41,
-    "outcome_right": 84,
+    "outcome_right": 91,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -4314,7 +4362,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 82,
+    "outcome_left": 86,
     "outcome_right": 50,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -4347,7 +4395,7 @@
     "stimulus_left": "stimuli/s4_forced.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 46,
-    "outcome_right": 85,
+    "outcome_right": 82,
     "forced": "left",
     "stimulus_estimation": "NA"
   },
@@ -4378,7 +4426,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 86,
+    "outcome_left": 80,
     "outcome_right": 70,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -4395,73 +4443,25 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 45,
-    "outcome_right": 95,
+    "outcome_right": 86,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
   {
     "option_left": 3,
-    "option_right": 2,
-    "comp_number": 36,
+    "option_right": 1,
+    "comp_number": 20,
     "task_version": 2,
     "block_n": 4,
-    "is_rare": 1,
+    "is_rare": 0,
     "bad_forced": 0,
     "type": "forced",
-    "stimulus_left": "stimuli/s3.png",
-    "stimulus_right": "stimuli/s1_forced.png",
-    "outcome_left": 83,
-    "outcome_right": 40,
-    "forced": "right",
+    "stimulus_left": "stimuli/s3_forced.png",
+    "stimulus_right": "stimuli/s4.png",
+    "outcome_left": 73,
+    "outcome_right": 49,
+    "forced": "left",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 2,
-    "block_n": 4,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "estimation",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "stimuli/s3.png"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 2,
-    "block_n": 4,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "estimation",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "stimuli/s4.png"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 2,
-    "block_n": 4,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "estimation",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "stimuli/s1.png"
   },
   {
     "option_left": 1,
@@ -4491,25 +4491,9 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 46,
-    "outcome_right": 86,
+    "outcome_right": 91,
     "forced": "NA",
     "stimulus_estimation": "NA"
-  },
-  {
-    "option_left": "NA",
-    "option_right": "NA",
-    "comp_number": "NA",
-    "task_version": 2,
-    "block_n": 4,
-    "is_rare": "NA",
-    "bad_forced": "NA",
-    "type": "estimation",
-    "stimulus_left": "NA",
-    "stimulus_right": "NA",
-    "outcome_left": "NA",
-    "outcome_right": "NA",
-    "forced": "NA",
-    "stimulus_estimation": "stimuli/s4.png"
   },
   {
     "option_left": "NA",
@@ -4541,6 +4525,22 @@
     "outcome_left": "NA",
     "outcome_right": "NA",
     "forced": "NA",
+    "stimulus_estimation": "stimuli/s4.png"
+  },
+  {
+    "option_left": "NA",
+    "option_right": "NA",
+    "comp_number": "NA",
+    "task_version": 2,
+    "block_n": 4,
+    "is_rare": "NA",
+    "bad_forced": "NA",
+    "type": "estimation",
+    "stimulus_left": "NA",
+    "stimulus_right": "NA",
+    "outcome_left": "NA",
+    "outcome_right": "NA",
+    "forced": "NA",
     "stimulus_estimation": "stimuli/s3.png"
   },
   {
@@ -4555,7 +4555,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3_forced.png",
     "outcome_left": 66,
-    "outcome_right": 87,
+    "outcome_right": 94,
     "forced": "right",
     "stimulus_estimation": "NA"
   },
@@ -4571,7 +4571,7 @@
     "stimulus_left": "stimuli/s1.png",
     "stimulus_right": "stimuli/s3_forced.png",
     "outcome_left": 74,
-    "outcome_right": 84,
+    "outcome_right": 88,
     "forced": "right",
     "stimulus_estimation": "NA"
   },
@@ -4587,7 +4587,7 @@
     "stimulus_left": "stimuli/s4.png",
     "stimulus_right": "stimuli/s3.png",
     "outcome_left": 45,
-    "outcome_right": 91,
+    "outcome_right": 82,
     "forced": "NA",
     "stimulus_estimation": "NA"
   },
@@ -4602,7 +4602,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s1.png",
-    "outcome_left": 83,
+    "outcome_left": 81,
     "outcome_right": 73,
     "forced": "NA",
     "stimulus_estimation": "NA"
@@ -4618,7 +4618,7 @@
     "type": "free",
     "stimulus_left": "stimuli/s3.png",
     "stimulus_right": "stimuli/s4.png",
-    "outcome_left": 92,
+    "outcome_left": 80,
     "outcome_right": 50,
     "forced": "NA",
     "stimulus_estimation": "NA"
